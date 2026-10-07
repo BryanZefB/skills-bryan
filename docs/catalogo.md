@@ -24,6 +24,8 @@
 
 ## Configuração e limites
 
+A [auditoria de 7 de outubro de 2026](verificacao-2026-10-07.md) confirma a integridade das cópias e registra três links incorretos do original da Vercel e a limitação de encerramento do helper webapp-testing no Windows.
+
 - `grill-with-docs` chama literalmente `grilling` e `domain-modeling`; ambas estão incluídas. `grill-me` da Kipper continua uma opção independente, com outro protocolo de entrevista.
 - `code-review`, `to-spec` e `to-tickets` precisam de configuração por projeto. `setup-matt-pocock-skills` e seus templates originais estão incluídos. Siga o [guia de Matt Pocock](matt-pocock.md) antes do primeiro uso. As dependências são verificadas pelo validador do acervo.
 - `to-spec` sintetiza contexto existente; a entrevista deve acontecer antes. `to-tickets` pede aprovação da divisão antes de publicar. A publicação no tracker deve estar autorizada.

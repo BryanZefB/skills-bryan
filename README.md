@@ -44,6 +44,7 @@ As áreas são organizadas no catálogo, mantendo `skills/<nome>` simples para d
 | TDD, revisão e branches | [Qualidade](docs/qualidade.md) |
 | Manutenção do acervo | [Contribuição](CONTRIBUTING.md) |
 | Adições aprovadas e próximos temas | [Lacunas e status](docs/lacunas.md) |
+| Integridade e compatibilidade verificadas | [Auditoria de 7 de outubro de 2026](docs/verificacao-2026-10-07.md) |
 
 ## Disponibilidade e preservação
 

@@ -103,6 +103,16 @@ class CollectionTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "External-only file tracked"):
             validate(self.root)
 
+    def test_executable_mode_is_checked(self):
+        subprocess.run(["git", "init", "--quiet", "--template=", str(self.root)], check=True)
+        script = "skills/webapp-testing/scripts/with_server.py"
+        subprocess.run(["git", "-C", str(self.root), "add", "--", script], check=True)
+        subprocess.run(["git", "-C", str(self.root), "update-index", "--chmod=-x", "--", script], check=True)
+        with self.assertRaisesRegex(ValueError, "Git file mode mismatch"):
+            validate(self.root)
+        subprocess.run(["git", "-C", str(self.root), "update-index", "--chmod=+x", "--", script], check=True)
+        self.assertEqual(set(validate(self.root)), EXTERNAL)
+
 
 if __name__ == "__main__":
     unittest.main()

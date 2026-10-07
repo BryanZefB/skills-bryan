@@ -167,6 +167,27 @@ def validate(root, require_external=False):
         for path in tracked:
             if any(path.startswith(f"skills/{name}/") for name in EXTERNAL):
                 raise ValueError(f"External-only file tracked by Git: {path}")
+        staged = subprocess.run(["git", "-C", str(root), "ls-files", "--stage", "-z", "--", "skills"],
+                                capture_output=True, check=True)
+        index = {}
+        for row in staged.stdout.split(b"\0"):
+            if not row:
+                continue
+            metadata, path = row.split(b"\t", 1)
+            mode, blob, stage = metadata.decode().split()
+            if stage != "0":
+                raise ValueError(f"Unresolved Git index conflict: {path.decode()}")
+            index[path.decode()] = (mode, blob)
+        for entry in data["skills"]:
+            for relative, record in entry["files"].items():
+                path = entry["path"] + "/" + relative
+                if path not in index:
+                    continue
+                mode, blob = index[path]
+                if mode != record["mode"]:
+                    raise ValueError(f"Git file mode mismatch: {path}")
+                if blob != record["git_blob"]:
+                    raise ValueError(f"Git index blob mismatch: {path}")
     for file in root.rglob("*.md"):
         if ".git" in file.parts or file.is_relative_to(skills_root):
             continue
