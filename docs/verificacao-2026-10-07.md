@@ -1,5 +1,7 @@
 # Verificação do acervo em 7 de outubro de 2026
 
+> Relatório histórico da revisão anterior. As quatro entradas com ressalvas foram retiradas na [substituição por fontes oficiais](substituicoes.md). As contagens e limitações abaixo descrevem o estado auditado, não o catálogo atual.
+
 Foi auditado um clone novo da `main`, no commit `d932c3dbb4b9844b871e1209b63826dbf2403534`. O inventário foi comparado diretamente com as árvores e blobs Git das fontes nas revisões de `sources.lock.json`, não apenas com os hashes do próprio manifesto.
 
 ## Resultado
@@ -41,7 +43,7 @@ O número de arquivos abaixo corresponde ao conteúdo original da pasta upstream
 
 Na `main` auditada, `skills/webapp-testing/scripts/with_server.py` tinha modo Git `100644`, enquanto a fonte e o lock registram `100755`. Seu conteúdo e blob são idênticos. Executá-lo com `python` funciona, mas a execução direta em ambientes Unix perde o atributo necessário.
 
-A correção proposta restaura exclusivamente o modo `100755`, preservando todos os bytes. O validador passa a conferir modos e blobs no índice Git. Um teste de regressão demonstra que o modo incorreto falha e o correto passa. Essa correção ainda depende do merge do PR de auditoria.
+A correção proposta restaura exclusivamente o modo `100755`, preservando todos os bytes. O validador passa a conferir modos e blobs no índice Git. Um teste de regressão demonstra que o modo incorreto falha e o correto passa. A substituição posterior removeu essa skill e tornou a correção do atributo desnecessária; a proteção de modos e blobs foi mantida.
 
 ### 2. Três links relativos incorretos no original da Vercel
 

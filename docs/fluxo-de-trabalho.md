@@ -4,7 +4,7 @@
 
 Comece com perguntas curtas, em rodadas, sobre usuário, problema, escopo, critérios de aceite, stack existente, dados, integrações e entrega. Reaproveite respostas já dadas. Para páginas simples, uma rodada pode bastar; para sistemas, esclareça permissões, falhas, concorrência e operação antes de definir a solução.
 
-Use `grill-me` para a entrevista. Registre decisões importantes com `domain-modeling`; mantenha glossário para termos do negócio e ADR apenas quando houver uma escolha difícil de reverter, com alternativas reais.
+Use `grilling` para a entrevista, ou `grill-with-docs` quando precisar registrar decisões e vocabulário. Registre decisões importantes com `domain-modeling`; mantenha glossário para termos do negócio e ADR apenas quando houver uma escolha difícil de reverter, com alternativas reais.
 
 ## 2. Definir a entrega
 

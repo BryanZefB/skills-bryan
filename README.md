@@ -2,7 +2,7 @@
 
 Acervo pessoal para desenvolver páginas, APIs e sistemas web com IA. Stack de referência: React, TypeScript/JavaScript, Next.js, NestJS, Prisma/ORMs, PostgreSQL e Docker.
 
-**19 skills autorizadas:** as 12 originais, as seis sugestões aprovadas e `setup-matt-pocock-skills`, necessária à configuração das skills de engenharia. Os arquivos originais são preservados byte a byte, incluindo referências, scripts e metadados. As instruções principais estão em inglês; algumas referências originais da Kipper estão em português e não foram traduzidas. A documentação própria é objetiva e em português.
+**17 skills distribuídas integralmente**, de fontes oficiais dos autores e fornecedores. As quatro entradas com ressalvas foram [substituídas](docs/substituicoes.md); entrevista e design aproveitam alternativas já presentes, sem duplicação. Os arquivos originais são preservados byte a byte, incluindo referências, scripts e metadados. As instruções das skills estão em inglês e a documentação própria em português.
 
 ## Comece aqui
 
@@ -20,7 +20,7 @@ Instalar skills não instala automaticamente os guias nem as regras pessoais em 
 skills/<nome>/       # Originais instaláveis; sem duplicação por categoria
 docs/               # Catálogo e guias por área
 templates/          # Instruções de projeto, especificação, ADR e entrega
-scripts/            # Validação e obtenção local das fontes externas
+scripts/            # Validação de integridade, fontes e documentação
 tests/              # Testes das proteções dos scripts
 .github/            # CI, Dependabot e modelo de pull request
 sources.lock.json   # Fontes, commits, hashes, licenças e dependências
@@ -44,11 +44,12 @@ As áreas são organizadas no catálogo, mantendo `skills/<nome>` simples para d
 | TDD, revisão e branches | [Qualidade](docs/qualidade.md) |
 | Manutenção do acervo | [Contribuição](CONTRIBUTING.md) |
 | Adições aprovadas e próximos temas | [Lacunas e status](docs/lacunas.md) |
+| Alternativas oficiais e migração | [Substituições](docs/substituicoes.md) |
 | Integridade e compatibilidade verificadas | [Auditoria de 7 de outubro de 2026](docs/verificacao-2026-10-07.md) |
 
 ## Disponibilidade e preservação
 
-17 skills são distribuídas aqui. `good-design` e `grill-me` ficam registradas no catálogo e no lock; seus arquivos são obtidos diretamente da fonte para uso local com `python scripts/fetch_external.py`. Não há licença explícita na revisão consultada da Kipper, portanto esses arquivos ficam ignorados pelo Git. Veja os [avisos de terceiros](THIRD_PARTY_NOTICES.md).
+Todas as 17 skills e seus 114 arquivos originais estão incluídos no repositório, acompanhados dos avisos de licença necessários. O clone e a instalação pelo GitHub usam o mesmo conjunto; não há download complementar de skills. Veja os [avisos de terceiros](THIRD_PARTY_NOTICES.md).
 
 `diagnosing-bugs` estava em dois links e foi importada uma única vez. `grill-with-docs` conta com `grilling` e `domain-modeling`. A configuração de tracker e layout de domínio é feita em cada projeto consumidor, com `setup-matt-pocock-skills`; não é uma configuração global compartilhada entre aplicações.
 

@@ -20,10 +20,4 @@ python -m pip install -r requirements-dev.txt
 python -m ruff check scripts tests
 ```
 
-Com as duas skills externas obtidas localmente:
-
-```bash
-python scripts/validate.py --require-external
-```
-
 Os scripts não sobrescrevem as skills originais para corrigir incompatibilidades. Documente limitações e proponha alternativas. Conteúdo sem licença explícita permanece fora do índice Git.
