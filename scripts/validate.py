@@ -14,15 +14,32 @@ SELECTED = {
     "good-design", "grill-me", "grill-with-docs", "frontend-design",
     "vercel-react-best-practices", "diagnosing-bugs", "code-review",
     "codebase-design", "domain-modeling", "tdd", "to-spec", "to-tickets",
+    "grilling", "setup-matt-pocock-skills", "security-best-practices",
+    "security-threat-model", "webapp-testing", "supabase-postgres-best-practices",
+    "web-design-guidelines",
 }
 EXTERNAL = {"good-design", "grill-me"}
 SOURCES = {
     "good-design": ("kipperacademy/skillpper", "good-design"),
     "grill-me": ("kipperacademy/skillpper", "grill-me"),
     "frontend-design": ("anthropics/skills", "skills/frontend-design"),
+    "webapp-testing": ("anthropics/skills", "skills/webapp-testing"),
     "vercel-react-best-practices": ("vercel-labs/agent-skills", "skills/react-best-practices"),
+    "web-design-guidelines": ("vercel-labs/agent-skills", "skills/web-design-guidelines"),
+    "security-best-practices": ("openai/skills", "skills/.curated/security-best-practices"),
+    "security-threat-model": ("openai/skills", "skills/.curated/security-threat-model"),
+    "supabase-postgres-best-practices": ("supabase/agent-skills", "skills/supabase-postgres-best-practices"),
+    "grilling": ("mattpocock/skills", "skills/productivity/grilling"),
     **{name: ("mattpocock/skills", f"skills/engineering/{name}")
-       for name in SELECTED - EXTERNAL - {"frontend-design", "vercel-react-best-practices"}},
+       for name in {"grill-with-docs", "code-review", "codebase-design", "domain-modeling",
+                    "tdd", "to-spec", "to-tickets", "diagnosing-bugs", "setup-matt-pocock-skills"}},
+}
+APACHE_LICENSED = {"frontend-design", "webapp-testing", "security-best-practices", "security-threat-model"}
+REQUIRED_SKILLS = {
+    "grill-with-docs": ["grilling", "domain-modeling"],
+    "code-review": ["setup-matt-pocock-skills"],
+    "to-spec": ["setup-matt-pocock-skills"],
+    "to-tickets": ["setup-matt-pocock-skills"],
 }
 
 
@@ -52,7 +69,7 @@ def load_manifest(root):
     entries = data.get("skills", [])
     names = [entry.get("name") for entry in entries]
     if len(names) != len(SELECTED) or set(names) != SELECTED:
-        raise ValueError("Manifest must contain exactly the 12 selected skill names")
+        raise ValueError(f"Manifest must contain exactly the {len(SELECTED)} selected skill names")
     for entry in entries:
         name = entry["name"]
         slug, upstream_path = SOURCES[name]
@@ -67,9 +84,14 @@ def load_manifest(root):
         if entry["distribution"] != expected_distribution:
             raise ValueError(f"Unexpected distribution for {name}")
         expected_license = "NOASSERTION" if name in EXTERNAL else (
-            "Apache-2.0" if name == "frontend-design" else "MIT")
+            "Apache-2.0" if name in APACHE_LICENSED else "MIT")
         if entry["license"] != expected_license:
             raise ValueError(f"Unexpected license for {name}")
+        if entry.get("required_skills", []) != REQUIRED_SKILLS.get(name, []):
+            raise ValueError(f"Required skill dependencies changed for {name}")
+        for dependency in entry.get("required_skills", []):
+            if dependency not in names:
+                raise ValueError(f"Missing dependency for {name}: {dependency}")
         if "SKILL.md" not in entry["files"]:
             raise ValueError(f"Missing entrypoint for {name}")
         for relative, record in entry["files"].items():
@@ -174,10 +196,10 @@ def main():
     except (ValueError, KeyError, OSError, subprocess.CalledProcessError) as error:
         print(f"FAIL: {error}", file=sys.stderr)
         return 1
-    print(f"OK: 12 selected sources; {12 - len(absent)} skill folders verified.")
+    print(f"OK: {len(SELECTED)} selected sources; {len(SELECTED) - len(absent)} skill folders verified.")
     if absent:
         print("External-only, not fetched in this clone: " + ", ".join(absent))
-    print("Known limitation: grill-with-docs requires unselected skill 'grilling'.")
+    print("OK: required Matt Pocock skill dependencies are available.")
     return 0
 
 

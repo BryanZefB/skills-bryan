@@ -4,7 +4,7 @@ This is Bryan's personal skill collection, not an application project.
 
 - Read README.md, sources.lock.json and docs/catalogo.md before changing the collection.
 - Ask focused questions before starting a new task. Use decisions already answered in the conversation; do not restart an interview unnecessarily.
-- Only the twelve selected skill names in the lock are authorized. Recommend missing skills in docs/lacunas.md; never install them automatically.
+- Only the nineteen selected skill names in the lock are authorized: the original twelve, six approved suggestions and setup-matt-pocock-skills for their configuration. Recommend other missing skills in docs/lacunas.md; never install them automatically.
 - Preserve upstream files exactly. Do not rewrite, translate, reformat or merge skill instructions. Packaging-only license files are separately recorded in the lock.
 - Keep original skill instructions in English and own documentation in Portuguese. Existing upstream references in other languages remain untouched.
 - Do not commit skills/good-design or skills/grill-me: they are external-only until redistribution permission is documented.
@@ -13,3 +13,4 @@ This is Bryan's personal skill collection, not an application project.
 - Run `python scripts/validate.py` and `python -m unittest discover -s tests -v` after changes.
 - Run `python -m ruff check scripts tests` with the version pinned in requirements-dev.txt. Never lint or reformat upstream skills.
 - Installing skills in other projects does not propagate this file. See templates/AGENTS.project.md.
+- Matt Pocock dependencies are bundled, including grilling and setup-matt-pocock-skills. Follow docs/matt-pocock.md to configure each consuming project; this collection does not choose a tracker for future projects.

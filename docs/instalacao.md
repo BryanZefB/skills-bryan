@@ -2,7 +2,7 @@
 
 Requisitos: Git, Node.js/npm para o CLI, Python 3.11+ para validar e obter as duas fontes locais. Os comandos usam `skills@1.7.1`, versão verificada na preparação do acervo. Consulte o [CLI oficial](https://github.com/vercel-labs/skills) antes de atualizar essa versão.
 
-## Do GitHub: 10 skills distribuídas
+## Do GitHub: 17 skills distribuídas
 
 Após o pull request ser incorporado à principal:
 
@@ -13,7 +13,9 @@ npx skills@1.7.1 add BryanZefB/skills-bryan --skill frontend-design vercel-react
 
 Execute a instalação na raiz do projeto. O primeiro comando só lista. O segundo instala as duas skills selecionadas nos agentes indicados; personalize os nomes conforme sua necessidade. Para instalação global, acrescente `--global`. Para selecionar todas as disponíveis, use `--skill '*'`. O CLI oferece confirmação; revise conflitos antes de aceitar substituições.
 
-## Clone local: as 12 selecionadas
+O CLI `skills@1.7.1` omite `metadata.json` nas cópias instaladas, por decisão do próprio instalador. Esse arquivo continua integral no acervo; instruções, referências, templates e licenças são preservados na instalação verificada. Codex e Cursor usam o diretório compartilhado `.agents/skills` nesta versão; Claude Code recebe `.claude/skills`.
+
+## Clone local: as 19 selecionadas
 
 ```bash
 git clone https://github.com/BryanZefB/skills-bryan.git
@@ -31,7 +33,13 @@ Para instalar esse clone em outro projeto, execute no diretório do projeto usan
 npx skills@1.7.1 add /caminho/skills-bryan --skill '*' -a codex claude-code cursor --copy
 ```
 
-No Windows, use o caminho entre aspas, por exemplo `"C:\repos\skills-bryan"`. A CLI descobre as pastas disponíveis; esta instalação inclui a skill `grill-with-docs`, mas sua dependência ausente continua ausente.
+No Windows, use o caminho entre aspas, por exemplo `"C:\repos\skills-bryan"`. A CLI descobre as pastas disponíveis, incluindo `grilling` e `setup-matt-pocock-skills`. Para instalar o conjunto de Matt e configurar cada projeto, siga o [guia específico](matt-pocock.md).
+
+## Pré-requisitos das novas skills
+
+`webapp-testing` contém exemplos e um helper Python; executar testes de navegador exige Playwright e o browser no ambiente do projeto. Revise a configuração existente e instale essas dependências em um ambiente isolado quando a tarefa precisar delas. Adicionar a pasta da skill não instala runtimes nem browsers.
+
+`web-design-guidelines` consulta diretrizes pela rede durante cada revisão. Se não houver acesso, informe a limitação. As skills de segurança leem referências locais e precisam do contexto do sistema; não exigem configurar um serviço externo para serem descobertas.
 
 ## Regras pessoais também precisam chegar ao projeto
 
