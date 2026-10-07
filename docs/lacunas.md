@@ -1,13 +1,13 @@
 # Adições aprovadas e lacunas restantes
 
-As seis sugestões abaixo foram autorizadas e adicionadas ao acervo. `setup-matt-pocock-skills` também foi incluída para completar a configuração por projeto das skills de engenharia. São 19 skills registradas ao todo.
+As sugestões aprovadas estão cobertas pelo conjunto abaixo. Após a [substituição das entradas problemáticas](substituicoes.md), são 17 skills, todas incluídas no GitHub. `setup-matt-pocock-skills` completa a configuração por projeto das skills de engenharia.
 
 | Prioridade | Sugestão | Lacuna e avaliação necessária |
 | --- | --- | --- |
 | Resolver dependência | [grilling, Matt Pocock](../skills/grilling/SKILL.md) | Instalada; completa grill-with-docs junto de domain-modeling |
 | Segurança | [security-best-practices, OpenAI](../skills/security-best-practices/SKILL.md) | Instalada; orientações de segurança por linguagem/framework com gatilho específico |
 | Segurança | [security-threat-model, OpenAI](../skills/security-threat-model/SKILL.md) | Instalada; modelagem de ameaças do projeto concreto |
-| Testes de interface | [webapp-testing, Anthropic](../skills/webapp-testing/SKILL.md) | Instalada; execução exige ambiente Python/Playwright e browser |
+| Testes de interface | [playwright-cli, Microsoft](../skills/playwright-cli/SKILL.md) | Instalada; execução exige CLI Node.js e browser |
 | Banco de dados | [supabase-postgres-best-practices, Supabase](../skills/supabase-postgres-best-practices/SKILL.md) | Instalada; schema, SQL, segurança e desempenho em PostgreSQL |
 | UX e acessibilidade | [web-design-guidelines, Vercel](../skills/web-design-guidelines/SKILL.md) | Instalada; revisão da interface a partir de diretrizes consultadas pela rede |
 

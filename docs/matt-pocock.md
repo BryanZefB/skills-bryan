@@ -10,7 +10,7 @@ Depois do merge deste PR, execute na raiz do projeto consumidor:
 npx skills@1.7.1 add BryanZefB/skills-bryan --skill setup-matt-pocock-skills grilling grill-with-docs domain-modeling codebase-design tdd diagnosing-bugs code-review to-spec to-tickets -a codex claude-code cursor --copy
 ```
 
-Durante a revisão, pode usar o clone local no lugar de `BryanZefB/skills-bryan`. Esses comandos instalam só o conjunto selecionado, não todo o repositório do autor. Evite instalar o plugin completo do autor e essas cópias ao mesmo tempo, pois isso pode duplicar skills e criar conflito de nomes; o `grill-me` deste acervo é o da Kipper.
+Durante a revisão, pode usar o clone local no lugar de `BryanZefB/skills-bryan`. Esses comandos instalam só o conjunto selecionado, não todo o repositório do autor. Evite instalar o plugin completo do autor e essas cópias ao mesmo tempo, pois isso pode duplicar skills e criar conflito de nomes.
 
 ## Executar o setup no projeto, não globalmente
 

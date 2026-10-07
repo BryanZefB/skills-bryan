@@ -4,87 +4,6 @@
   "skills_cli_version": "1.7.1",
   "skills": [
     {
-      "name": "good-design",
-      "category": "design",
-      "path": "skills/good-design",
-      "repository": "https://github.com/kipperacademy/skillpper.git",
-      "upstream_path": "good-design",
-      "commit": "163871cc03be9941216cadf817180e7b00a6ed21",
-      "source_urls": [
-        "https://github.com/kipperacademy/skillpper/tree/main/good-design"
-      ],
-      "distribution": "external",
-      "license": "NOASSERTION",
-      "files": {
-        "SKILL.md": {
-          "sha256": "6955feef0f9807bf83fe99b768ed808c596f39cde161d298cfa4f4cfc065f13a",
-          "git_blob": "1fd6c56d6aab80afac30a7cfea66145791295bcc",
-          "mode": "100644"
-        },
-        "agents/openai.yaml": {
-          "sha256": "b4e0f4495bbbde433d938be46d41cf2ed41e95c5bafdb2f7a6aa87105a84f3b1",
-          "git_blob": "38f4d21dc3c39e8fa086b32a463926c87f546cfc",
-          "mode": "100644"
-        },
-        "references/fontes.md": {
-          "sha256": "207d659221e18a85e7172cfebb47fcc3ee6f233ae8e448ed9ce6c839f3c553f7",
-          "git_blob": "5a7836fae0b4b091f2baa711fac0723fbe29fad5",
-          "mode": "100644"
-        },
-        "references/fundamentos.md": {
-          "sha256": "1e60b97c03377a9d992232f0e013221cb536a26bda5d5e4b769f9c069f7cbd6b",
-          "git_blob": "dc742447df1462b66542795bfb8ffc483eb4ecf1",
-          "mode": "100644"
-        },
-        "references/jornadas-e-superficies.md": {
-          "sha256": "0216e0103896580dbefca6378a3c930cd49cb725f1d50bb692ed29f107bc7784",
-          "git_blob": "e4ea02ceeb1595f440761074fd82cdd4b8b67ff8",
-          "mode": "100644"
-        },
-        "skill-review.yaml": {
-          "sha256": "c679fc4f66e72de5ca49474ce2f2f2236cf9f3e6224433e85587b38bb2443e93",
-          "git_blob": "306737c2707ed5e55e66233485c214ae0f39f1cc",
-          "mode": "100644"
-        }
-      },
-      "packaging_files": {},
-      "required_skills": [],
-      "optional_workflow_dependencies": []
-    },
-    {
-      "name": "grill-me",
-      "category": "planning",
-      "path": "skills/grill-me",
-      "repository": "https://github.com/kipperacademy/skillpper.git",
-      "upstream_path": "grill-me",
-      "commit": "163871cc03be9941216cadf817180e7b00a6ed21",
-      "source_urls": [
-        "https://github.com/kipperacademy/skillpper/tree/main/grill-me"
-      ],
-      "distribution": "external",
-      "license": "NOASSERTION",
-      "files": {
-        "SKILL.md": {
-          "sha256": "00577e095d66581940557e24da86a48c2b4984977b110c194eed00e2f2d42e8a",
-          "git_blob": "94c73ed88fe73d3bdd157d92fb012f54dc4f9b5b",
-          "mode": "100644"
-        },
-        "references/interactive-interview.md": {
-          "sha256": "6cec91809f9f2b313f9fa7405e01d99ed69af1cc492e3cf1e30be1543b7416fa",
-          "git_blob": "4bb21aa147a8a635743a647cae77d6120823e9b8",
-          "mode": "100644"
-        },
-        "skill-review.yaml": {
-          "sha256": "8b18b287d5141c979daad251f96ae3ba111cad80217f435e9f33ecf43ae6355d",
-          "git_blob": "10fb55eaf50f5759cb35af93c6514a38b63ea229",
-          "mode": "100644"
-        }
-      },
-      "packaging_files": {},
-      "required_skills": [],
-      "optional_workflow_dependencies": []
-    },
-    {
       "name": "grill-with-docs",
       "category": "planning",
       "path": "skills/grill-with-docs",
@@ -144,407 +63,6 @@
         }
       },
       "packaging_files": {},
-      "required_skills": [],
-      "optional_workflow_dependencies": []
-    },
-    {
-      "name": "vercel-react-best-practices",
-      "category": "frontend",
-      "path": "skills/vercel-react-best-practices",
-      "repository": "https://github.com/vercel-labs/agent-skills.git",
-      "upstream_path": "skills/react-best-practices",
-      "commit": "063bee94c3f4df8453406c830b0a7df0f2860278",
-      "source_urls": [
-        "https://github.com/vercel-labs/agent-skills/tree/main/skills/react-best-practices",
-        "https://www.skills.sh/vercel-labs/agent-skills/vercel-react-best-practices"
-      ],
-      "distribution": "vendored",
-      "license": "MIT",
-      "files": {
-        "AGENTS.md": {
-          "sha256": "fc93e7421177bbf869cce892bc60a6c83a4517d974bc3bf65c4e2c1e58a6ccf6",
-          "git_blob": "4e340a50684a8e7811d5bfa4df48bd9989d0fd87",
-          "mode": "100644"
-        },
-        "README.md": {
-          "sha256": "9eafb2123d3b8b2aef41fba0db2648a3f4f49996f8c7c8bb2c86263befd8b48a",
-          "git_blob": "f283e1c0c21c5b13c848452528c3949ff544846c",
-          "mode": "100644"
-        },
-        "SKILL.md": {
-          "sha256": "71ed7794962fa6e803ee83030517b5b93a9f70fbfeb431ec4535c5480a8d8355",
-          "git_blob": "237988de4a66dd8a71d30a2c24ebe1a86b58d04e",
-          "mode": "100644"
-        },
-        "metadata.json": {
-          "sha256": "c4e18bac3290fbe1b471a605867d4df68b03144ea26b8befdbe8f9d8fd124354",
-          "git_blob": "3bec38b176cc71d105895ec4678bbe79305dcb4c",
-          "mode": "100644"
-        },
-        "rules/_sections.md": {
-          "sha256": "01c59969e4e867f0708c8f8ef9c6d87fab9a07d0586244f429ff84013db8a115",
-          "git_blob": "4d20c144bc3b9265fc5976c704a8dd60ed3a806a",
-          "mode": "100644"
-        },
-        "rules/_template.md": {
-          "sha256": "99df2a3ea088c6c22de2484ddc7e964d0e9923846f44c63380343ecc64455442",
-          "git_blob": "1e9e70703485021e0b969f5731f38c8b9f8694db",
-          "mode": "100644"
-        },
-        "rules/advanced-effect-event-deps.md": {
-          "sha256": "55ed8f9f27a1bff803d6fa55828176207714b02123cbb97ddb8a90d88024a723",
-          "git_blob": "24d901b62be66f6088eb1de5b262e67f5c337d57",
-          "mode": "100644"
-        },
-        "rules/advanced-event-handler-refs.md": {
-          "sha256": "a3097edeecfb2ff6851cd66ed8cdf0617c3c88180504bee824aa6e75a215bbbc",
-          "git_blob": "97e7ade243aa6dae50d6faa5111dea0d04778ead",
-          "mode": "100644"
-        },
-        "rules/advanced-init-once.md": {
-          "sha256": "3e4dc22173eb0e2b6dcf583e3babd862b8696328f8f59aee7c4d746c5bc05f6c",
-          "git_blob": "73ee38e5e74c0afa28cb730afe3275479432092a",
-          "mode": "100644"
-        },
-        "rules/advanced-use-latest.md": {
-          "sha256": "8a3f64dfe5a77d1564248faf17fe662ae75b55d497a243cb30b38eb07ccbbf9a",
-          "git_blob": "9c7cb501693d4a9521697f13dbd5906dd99f0257",
-          "mode": "100644"
-        },
-        "rules/async-api-routes.md": {
-          "sha256": "523338540d73427dc14c0cbb19f2741ebccdf8b105a7b2c1b33d2905cf237a42",
-          "git_blob": "6feda1ef0ac06b57b33c7b5bd6a19ca88d6c8a34",
-          "mode": "100644"
-        },
-        "rules/async-cheap-condition-before-await.md": {
-          "sha256": "03107c1f70a293cd58a8abc5474c5548e20ea4efdf01b6d45aae7ad0ac1cb32c",
-          "git_blob": "5799d7f6ee6e9d70422048ab0cae06ca021d22b2",
-          "mode": "100644"
-        },
-        "rules/async-defer-await.md": {
-          "sha256": "f3c142d090615abdcc99d31c123be37b31f0f1ed8d9ec9f7789a3bc6883ae0fb",
-          "git_blob": "460b5e16baf9c66f85e4169eb9d43e4d07f2ce94",
-          "mode": "100644"
-        },
-        "rules/async-dependencies.md": {
-          "sha256": "16ef469f877e30c6b8e1e1b4bc3e527312fa3c6318cb785a4eca186ea236131a",
-          "git_blob": "0484ebab993f3db78277e8731872473d02475e6d",
-          "mode": "100644"
-        },
-        "rules/async-parallel.md": {
-          "sha256": "6d2f841896279e976dfcdc1ac89e70771ac188baadfd43c096b5706cb838b961",
-          "git_blob": "64133f6c31fec81eaaabd712586337d20122e09f",
-          "mode": "100644"
-        },
-        "rules/async-suspense-boundaries.md": {
-          "sha256": "de05fedac2eb7ae563b887b5a424464ec3dfaf84e5b7797467ebe2a796ac8afc",
-          "git_blob": "1fbc05b04ed2474637b12014a77688750e78f931",
-          "mode": "100644"
-        },
-        "rules/bundle-analyzable-paths.md": {
-          "sha256": "62090b5c815fd71bf1133dce754f51abc16a9456d0ccd025fd627de27726e92a",
-          "git_blob": "8276f156cf1aa8a611bd5bc3cadcb362e16ccd13",
-          "mode": "100644"
-        },
-        "rules/bundle-barrel-imports.md": {
-          "sha256": "e648f6d54525f07a691357040ca5bff6ea3424788a91ff63812adb29622a671b",
-          "git_blob": "22d1050196671b7bc9f9aaf88cc665ba6fa8deb0",
-          "mode": "100644"
-        },
-        "rules/bundle-conditional.md": {
-          "sha256": "09c8259c3efb04fc0abb8e412ccbda217c222ae8118516283e571c995fe3a7d4",
-          "git_blob": "99d6fc90e31d683d2b6b71353b92d620b484b644",
-          "mode": "100644"
-        },
-        "rules/bundle-defer-third-party.md": {
-          "sha256": "3719fb47b191e8db4fe22686ec88448ad5af9e6838585425abbe103d0b642e37",
-          "git_blob": "db041d1510e51defeade05926ba4e6bbad1068b5",
-          "mode": "100644"
-        },
-        "rules/bundle-dynamic-imports.md": {
-          "sha256": "401817a7369f315fc5a68a1095742ff7d53d0461906880dc9d64a41495ee1986",
-          "git_blob": "60b62695e7a080e2020ff2242d8d841c5e3ecbc4",
-          "mode": "100644"
-        },
-        "rules/bundle-preload.md": {
-          "sha256": "d1f7cc28da7cd5ab249acd287edc5b761afcfb194e9cb62cd44c5f3543db2de2",
-          "git_blob": "7000504065472628ae614786a3faadd23b0435a7",
-          "mode": "100644"
-        },
-        "rules/client-event-listeners.md": {
-          "sha256": "242a873349febc1ce685e85617994784dbab92c2eaa68aed7fed5a83e7680e93",
-          "git_blob": "aad4ae91605d715aad8e92b76bd7fb85c91d7cdf",
-          "mode": "100644"
-        },
-        "rules/client-localstorage-schema.md": {
-          "sha256": "0fb7cdf9dc93fdf22f87e3669f953fb9d4ac9b0be42eec4a29fe9a2560610b88",
-          "git_blob": "d30a1a7d4f85b0d50a0808eaa1b382c6deb595f4",
-          "mode": "100644"
-        },
-        "rules/client-passive-event-listeners.md": {
-          "sha256": "1f35016f9053de69e884ee9be00654e37979c2ca85f5e57764dc2626ff7acb4b",
-          "git_blob": "ce39a889efb4452ec4c044555ff818301dcf7ece",
-          "mode": "100644"
-        },
-        "rules/client-swr-dedup.md": {
-          "sha256": "644652c39c6cc00de8d1c77a7273612e868dc3f7edda30764164c12ec0f764a3",
-          "git_blob": "2a430f27fd6abdc1b1b2f809b7a60114ff506790",
-          "mode": "100644"
-        },
-        "rules/js-batch-dom-css.md": {
-          "sha256": "480b891b9eaf96e929dc1e964274a4828e3a78009b7d00ccd965a0d425215959",
-          "git_blob": "a62d84ed8149b6d4f173debc7043af03f8f8dd06",
-          "mode": "100644"
-        },
-        "rules/js-cache-function-results.md": {
-          "sha256": "3daaa11d24f4295cb6be8bc6f407f2ce83cc7b5bd1f0e68891ea8ab835721dc7",
-          "git_blob": "180f8ac8fffd7e6ee320242d59d06565d40a12f8",
-          "mode": "100644"
-        },
-        "rules/js-cache-property-access.md": {
-          "sha256": "73e47431e74878a927061bf0ddc7cd91a7556cb35d2573f3421e82300d9ae311",
-          "git_blob": "39eec9061b4ca820150cc8183fb73f9e0c91ce85",
-          "mode": "100644"
-        },
-        "rules/js-cache-storage.md": {
-          "sha256": "11b826b0433898c1ece2d3547010d8e77db9fb240185748c45db91493de9b6cc",
-          "git_blob": "aa4a30c08176aabd27b41fa44d5c1981457b675f",
-          "mode": "100644"
-        },
-        "rules/js-combine-iterations.md": {
-          "sha256": "71add08aeeb43091d4ff4c0b2842cce8b4bdef8ad3e732cc034bb5a84827e746",
-          "git_blob": "044d017ec3b24b53e46d638acd1d936a22ac6323",
-          "mode": "100644"
-        },
-        "rules/js-early-exit.md": {
-          "sha256": "925ce5ce87f3347186ca62212f29cc6baa2b8c85a96d2720ad07c3d0abf781c0",
-          "git_blob": "f46cb89c6cbe06e481aba0136848e3b17263ba96",
-          "mode": "100644"
-        },
-        "rules/js-flatmap-filter.md": {
-          "sha256": "9e5b166a41914d975bef7635467f8fb32cd98b5c3126c0bc6f163490812fb5f0",
-          "git_blob": "ee0edf0da256eb8b62c5a998c768c51eb520e8cd",
-          "mode": "100644"
-        },
-        "rules/js-hoist-regexp.md": {
-          "sha256": "f9e9aef2f7c2307dd7310f283df85dcada45fc43e9bb941b0c3aa414dec21ec4",
-          "git_blob": "dae3fefdc0a1db66badcd4875489715edcdb038b",
-          "mode": "100644"
-        },
-        "rules/js-index-maps.md": {
-          "sha256": "5df1bdc2cfabb2c98abd55d26762e5c18189535c2e686184f426082e62920391",
-          "git_blob": "9d357a00b15ac67cdd638886f5197a13173a637d",
-          "mode": "100644"
-        },
-        "rules/js-length-check-first.md": {
-          "sha256": "8b54a311c826b299272f29187fc58bc55772a04c4a72eeb29456ee96dc9fc624",
-          "git_blob": "8b89573630fdc3aa10564273f390ecc7e2b1cd3e",
-          "mode": "100644"
-        },
-        "rules/js-min-max-loop.md": {
-          "sha256": "87dfb67e2f39df6ad8bcfb5b78c5fb364d3c07554ad188a202408d99f3763421",
-          "git_blob": "4b6656e96aecf3ae6ade52974090ae8b3e3f2bb5",
-          "mode": "100644"
-        },
-        "rules/js-request-idle-callback.md": {
-          "sha256": "ee08f83905b4011abbc33d594033157d77561b5bbd9b36b04f0f409581ffec32",
-          "git_blob": "d81927e5f0ddb9fa4eece79197728bfc4382cbfe",
-          "mode": "100644"
-        },
-        "rules/js-set-map-lookups.md": {
-          "sha256": "a7fd781a6ba9ad49065961b6f9a90ef486bf6b648390e1a08704025f98e1642b",
-          "git_blob": "680a4892ee291c432bf8e769a44d0f1eb102b74b",
-          "mode": "100644"
-        },
-        "rules/js-tosorted-immutable.md": {
-          "sha256": "d0a5e1b0fec48a0a81397957e2f068e224329f7c42cb5feeed8aae6fa64025e8",
-          "git_blob": "eae8b3f8aed2c7a893ceaae4cab55fa1c444b309",
-          "mode": "100644"
-        },
-        "rules/rendering-activity.md": {
-          "sha256": "1e5e7eaf3555e61d6a2e900089c676527d26259501db5594f59544b6c664f85a",
-          "git_blob": "c957a490b7c2688542766150741e85e066539251",
-          "mode": "100644"
-        },
-        "rules/rendering-animate-svg-wrapper.md": {
-          "sha256": "9c6ae0ca7a51434e803887c64cded760956579a1452ccb80a461a03f9c937c77",
-          "git_blob": "646744cbe53b213c6fa5ead54ef107510e5be89d",
-          "mode": "100644"
-        },
-        "rules/rendering-conditional-render.md": {
-          "sha256": "2ec2fa23c4148285144687050c52369adba3da2fbe3d486f8d3e0aad8f06f2bc",
-          "git_blob": "7e866f5852dac80e0822e7f7c33476f5c9fc22f1",
-          "mode": "100644"
-        },
-        "rules/rendering-content-visibility.md": {
-          "sha256": "64eee6d5b916fe74df33363994b27fc7f71bea3bcedc7ee04bda23107ca3e6e4",
-          "git_blob": "aa6656362b2c0dad9ffea788b5850843d6c0629e",
-          "mode": "100644"
-        },
-        "rules/rendering-hoist-jsx.md": {
-          "sha256": "93b229560fae92005ed9a2a829064607b39b2e984e92d221d05b2d41df2b7c0e",
-          "git_blob": "32d2f3fcea53dadcf847231ee20c60fa2c5c3049",
-          "mode": "100644"
-        },
-        "rules/rendering-hydration-no-flicker.md": {
-          "sha256": "dc7ab358c67c177bca6e6f360fbc935ebe4efa928c0ba3ebd3f9f3d9e2000ca3",
-          "git_blob": "5cf0e79b69afd7564b965c09435a2c7ee79eb2bd",
-          "mode": "100644"
-        },
-        "rules/rendering-hydration-suppress-warning.md": {
-          "sha256": "915bacb934e2927d84b37a3f3d225a47b309ac8f9e494ed2bcb66ce07c5676a2",
-          "git_blob": "24ba2513a29f5259b3184695d2d4da25e03e42ac",
-          "mode": "100644"
-        },
-        "rules/rendering-resource-hints.md": {
-          "sha256": "351b1095d641717b930f1b2253282b7120af3023bc74e06c17675168d4286864",
-          "git_blob": "1290bef06baf459f85dc5856ffc4486951224a48",
-          "mode": "100644"
-        },
-        "rules/rendering-script-defer-async.md": {
-          "sha256": "4cea07b7875ba7fc2c7465ff23b63a2bb334f90aaf2d9293d38d67b05fdb32ab",
-          "git_blob": "ee275ed1c06da8f1ae70e744e47965799eaebf02",
-          "mode": "100644"
-        },
-        "rules/rendering-svg-precision.md": {
-          "sha256": "ed468533f6e95f622859c884b122cf21f9f593ed6bb3d500a54de4b9f9bcb9fb",
-          "git_blob": "6d7712860365294936a1b736d29d3eb970b91da7",
-          "mode": "100644"
-        },
-        "rules/rendering-usetransition-loading.md": {
-          "sha256": "3a1249c3f13026b6f54ab5712c388df219d6af01b12aa542749acd99a46f4bc1",
-          "git_blob": "0c1b0b98e884d2c77bdec66df754693bd48c7777",
-          "mode": "100644"
-        },
-        "rules/rerender-defer-reads.md": {
-          "sha256": "234050a77faf50cb306be10a9e15bd4421134ab5907e75f13e6d78e2bd262dc9",
-          "git_blob": "e867c95f02fe6ed6ac2f91fdf1c0922304e0423a",
-          "mode": "100644"
-        },
-        "rules/rerender-dependencies.md": {
-          "sha256": "17eb5830956fb56486fd3cfc7431f5849d39751730c05ad9e77dd4f0c27169c5",
-          "git_blob": "47a4d92685702e3a3b07073c62a61800fa0a6d7d",
-          "mode": "100644"
-        },
-        "rules/rerender-derived-state-no-effect.md": {
-          "sha256": "cb11ec76f50aa7b6847269f02d79b120c889a30d9ecd2c1d578f75144419c77a",
-          "git_blob": "3d9fe4050794ea6655add6bee50cfbc104e5dc31",
-          "mode": "100644"
-        },
-        "rules/rerender-derived-state.md": {
-          "sha256": "1c326bb67b01fb084eb00c8911b0a7cff54681c2315b629f88e49b64eaa6481d",
-          "git_blob": "e5c899f6c073338bbd1b73c0275bc3e5e7d9ae7b",
-          "mode": "100644"
-        },
-        "rules/rerender-functional-setstate.md": {
-          "sha256": "5e68df6b2ae8058e67f476ff1ac67bde159f5a9d18df439e46eabcdeb7b52e58",
-          "git_blob": "b004ef45e347503947fee397b6c3d163b0a317fb",
-          "mode": "100644"
-        },
-        "rules/rerender-lazy-state-init.md": {
-          "sha256": "4ae844740f266fc8cbf050701230286624a2440ec5be67b9a63d9edc3c580573",
-          "git_blob": "4ecb350fbadff3db805b72429276e672d42736dc",
-          "mode": "100644"
-        },
-        "rules/rerender-memo-with-default-value.md": {
-          "sha256": "81c47476564ad8a79fc68fc442734255ca7d6829424359464503fda0a9f9a0dd",
-          "git_blob": "63570491848cb42c2bc7073bceb754893a6a4cfa",
-          "mode": "100644"
-        },
-        "rules/rerender-memo.md": {
-          "sha256": "1f258990c2f27ff6256b3cc5c43300631bb3f0d81f749aed08d07fcdcc131dd1",
-          "git_blob": "f8982ab612105a3b7faee1292b797338e7fb5271",
-          "mode": "100644"
-        },
-        "rules/rerender-move-effect-to-event.md": {
-          "sha256": "abc2cbf167bee056743023351e96806a411d3398da8802093620aecf0721f029",
-          "git_blob": "dd58a1af091b3cf5cb271d25904af4feb836d1aa",
-          "mode": "100644"
-        },
-        "rules/rerender-no-inline-components.md": {
-          "sha256": "1cc32907a770272524ba682eef9e7efdd8ad4533b6f89b718a1fcd7d1d0eb6a3",
-          "git_blob": "d97592acefced05bc4a8538c77d226fa24c08534",
-          "mode": "100644"
-        },
-        "rules/rerender-simple-expression-in-memo.md": {
-          "sha256": "5bdcf2d1558ba5204e643c887b7b4060f89630969425651eb68e96427d97f800",
-          "git_blob": "59dfab0f3b048097627e0ca6e4c8da36629a5268",
-          "mode": "100644"
-        },
-        "rules/rerender-split-combined-hooks.md": {
-          "sha256": "6f45d703343484ef9acef9388397f3642966ae6a5a258899a0cf1f9977cfbf6c",
-          "git_blob": "89d805644dbffe3877bc1356bdf8ad416a5c715b",
-          "mode": "100644"
-        },
-        "rules/rerender-transitions.md": {
-          "sha256": "60f4033909a62df5e5b8c601494f9e50a562e2f8c1c2d81eac24f38142265f1c",
-          "git_blob": "d99f43f764232e994a49a1df89ec9d624552f439",
-          "mode": "100644"
-        },
-        "rules/rerender-use-deferred-value.md": {
-          "sha256": "8c3579576a61a949884167745dcfaf1d5426ba305cc61fd0a79602d70fda4909",
-          "git_blob": "619c04b0142bf5a5b7d0f69532a56b797a78f664",
-          "mode": "100644"
-        },
-        "rules/rerender-use-ref-transient-values.md": {
-          "sha256": "f1a649af9d1d0b5c762f6c9c4c1c70c90d7df82aa10296ee87aadb78c1b76c54",
-          "git_blob": "cf04b81f8a531eacd07a32e8917fb3ed3c1bbecb",
-          "mode": "100644"
-        },
-        "rules/server-after-nonblocking.md": {
-          "sha256": "d0b8d24a3db9f0f65f9e2bddbf230b0e03a5f60e1229d93a4a18f5e7a991c7c2",
-          "git_blob": "e8f5b260f5fc6d58141bc61e0a091569adb81e7e",
-          "mode": "100644"
-        },
-        "rules/server-auth-actions.md": {
-          "sha256": "a2ca8aa102839251c7971ec784560fab943c20b36fe6f80365d4110c13260c23",
-          "git_blob": "ee82c0442bc69ffae7bf20c07709d57893da1123",
-          "mode": "100644"
-        },
-        "rules/server-cache-lru.md": {
-          "sha256": "1924b64561841923b88a657085097a0aeba3e0ba2d5470b9f5c15cc10d6ae70f",
-          "git_blob": "ef6938aa53c55dc3c0035bd6c66838810d870260",
-          "mode": "100644"
-        },
-        "rules/server-cache-react.md": {
-          "sha256": "fddeea6c870bb3da4134b61d54b7d09b83d2603f929b7547cd3dc1dc269edd5c",
-          "git_blob": "87c9ca33168a321a59fbaaa84843e2f48c99751a",
-          "mode": "100644"
-        },
-        "rules/server-dedup-props.md": {
-          "sha256": "c2747424cdac46be62f835f245a0aa887b0090b416d28e2ac8676702645eeb37",
-          "git_blob": "fb24a2562c73fadbb9a11a79897c2cf93ea3c69a",
-          "mode": "100644"
-        },
-        "rules/server-hoist-static-io.md": {
-          "sha256": "5abea4dd882b13661bd5f7dfb93f9e547d5f08176c61c448ade91b210ed5d49f",
-          "git_blob": "25205c2fc42d0dd684d6423acde642774329a8cc",
-          "mode": "100644"
-        },
-        "rules/server-no-shared-module-state.md": {
-          "sha256": "4d869bf1cd2f1632e5ca4c0e64b1cf0e71c5f5a0f940bc8a22174d205e735ed7",
-          "git_blob": "ff7d9f29c6e0e42ec1471acec8a3c7f394c8358d",
-          "mode": "100644"
-        },
-        "rules/server-parallel-fetching.md": {
-          "sha256": "569a2e9fc04f9606686cd75c5894ef8781b502786a7fffe241396846c7733472",
-          "git_blob": "1affc835a601a894fd02de08e6c9cdfd76d34b64",
-          "mode": "100644"
-        },
-        "rules/server-parallel-nested-fetching.md": {
-          "sha256": "ad5d9656984d4a959997a2367bf59cc6632297b4634a1dd13a087939d83f30b3",
-          "git_blob": "be1dc25075e40e6bda46cb24dc5a6f42b916b0e8",
-          "mode": "100644"
-        },
-        "rules/server-serialization.md": {
-          "sha256": "f4c7d68b29c82381baad059c4a7f09e868e71ec9c3115a26ad3ae7d24c0dfe1f",
-          "git_blob": "39c5c4164c31be7f171ea2f4b3b32fe47709a651",
-          "mode": "100644"
-        }
-      },
-      "packaging_files": {
-        "UPSTREAM-LICENSE-README.md": "7c02f64b08fc6c4eef03c01d64f3e2ed478193ccfcbd14edba379abe23304651"
-      },
       "required_skills": [],
       "optional_workflow_dependencies": []
     },
@@ -1012,54 +530,6 @@
       "optional_workflow_dependencies": []
     },
     {
-      "name": "webapp-testing",
-      "category": "quality",
-      "path": "skills/webapp-testing",
-      "repository": "https://github.com/anthropics/skills.git",
-      "upstream_path": "skills/webapp-testing",
-      "commit": "683bc88e56f3e09ba94f7055977f3d3aa499f202",
-      "source_urls": [
-        "https://github.com/anthropics/skills/tree/main/skills/webapp-testing"
-      ],
-      "distribution": "vendored",
-      "license": "Apache-2.0",
-      "files": {
-        "LICENSE.txt": {
-          "sha256": "bc6b3af2f331cbc7fb0da1344efb2cbe5877a31498b4d70dbc7000f3405a1362",
-          "git_blob": "4f881c52d1f72f4cfb720e339e2d35c3058d01a9",
-          "mode": "100644"
-        },
-        "SKILL.md": {
-          "sha256": "51b7349e77ec63b7744a6f63647e7566a0b4d2e301121cc10e8c2113af6556a2",
-          "git_blob": "4726215301db64a0cc4d41fc3219c61f37a30f4a",
-          "mode": "100644"
-        },
-        "examples/console_logging.py": {
-          "sha256": "ea46877289acb82da7e7ce59d0bc37c8977cd57e2a006d0c88d7a1c625bf95da",
-          "git_blob": "9329b5e232ed53d944bfe95e750070117d31b9ab",
-          "mode": "100644"
-        },
-        "examples/element_discovery.py": {
-          "sha256": "d63c89604a22f8845d724e95dda45db49b1bf57c25ce0a83afbb7b8da3d402f0",
-          "git_blob": "917ba72f52421a1b324f93ae8e38af72010a87b9",
-          "mode": "100644"
-        },
-        "examples/static_html_automation.py": {
-          "sha256": "9d533aafb875ee3ab8b8ebf8f5b9003ac8d999da3d09b285cce252e623140064",
-          "git_blob": "90bbedcc08cdb345c74fb938ebad02c0baf56603",
-          "mode": "100644"
-        },
-        "scripts/with_server.py": {
-          "sha256": "b0dcf4918935b795f4eda9821579b9902119235ff4447f687a30286e7d0925fd",
-          "git_blob": "431f2eba16b268b7f3e2ae4daae9db41c0289b6d",
-          "mode": "100755"
-        }
-      },
-      "packaging_files": {},
-      "required_skills": [],
-      "optional_workflow_dependencies": []
-    },
-    {
       "name": "supabase-postgres-best-practices",
       "category": "database",
       "path": "skills/supabase-postgres-best-practices",
@@ -1280,6 +750,171 @@
       },
       "packaging_files": {
         "UPSTREAM-LICENSE-README.md": "7c02f64b08fc6c4eef03c01d64f3e2ed478193ccfcbd14edba379abe23304651"
+      },
+      "required_skills": [],
+      "optional_workflow_dependencies": []
+    },
+    {
+      "name": "vercel-composition-patterns",
+      "category": "frontend",
+      "path": "skills/vercel-composition-patterns",
+      "repository": "https://github.com/vercel-labs/agent-skills.git",
+      "upstream_path": "skills/composition-patterns",
+      "commit": "063bee94c3f4df8453406c830b0a7df0f2860278",
+      "source_urls": [
+        "https://github.com/vercel-labs/agent-skills/tree/063bee94c3f4df8453406c830b0a7df0f2860278/skills/composition-patterns"
+      ],
+      "distribution": "vendored",
+      "license": "MIT",
+      "files": {
+        "AGENTS.md": {
+          "sha256": "89e3ddd58fcf99a53a50e25dfd21b8cde1be5f10b7df6bacd3dfa6796932f516",
+          "git_blob": "558bf9aa1e36db2161f1633c9bfae14a819f0508",
+          "mode": "100644"
+        },
+        "README.md": {
+          "sha256": "85915a43a6f0b4efe525e3cf6398dd866166da2025837c4460468a24a940da94",
+          "git_blob": "01f359b0e79ce544d1463057be54946e50d62bcd",
+          "mode": "100644"
+        },
+        "SKILL.md": {
+          "sha256": "e38e0eaa609316b10423a9a138ed95e35099accd3f735585295c8a8f165c28a3",
+          "git_blob": "d07025bf943345bc1cf15eb923594f889ff881f0",
+          "mode": "100644"
+        },
+        "metadata.json": {
+          "sha256": "49262ed5cb4186f31ee980cf8d990be0170c51efed4908d0464a1cff9905bd05",
+          "git_blob": "3470b744190af044373abbfe80d94630c0cc6041",
+          "mode": "100644"
+        },
+        "rules/_sections.md": {
+          "sha256": "a174213b87e6911e2b766995a2cbaf8d1534057076e82fb79fe3f0ecb38047df",
+          "git_blob": "f921dd41b53e4d847f25a6b3eca25a4e8857db44",
+          "mode": "100644"
+        },
+        "rules/_template.md": {
+          "sha256": "587f7d16b0660eb61fee4a4d3d7df2b3077d6835de170602c7d6e60bee559131",
+          "git_blob": "119a30167f162c439f05e73c63044c590dff645c",
+          "mode": "100644"
+        },
+        "rules/architecture-avoid-boolean-props.md": {
+          "sha256": "007555ebb020f4d552582a2c4db194db71a1fd33094012e5187bcfa4f8c392d5",
+          "git_blob": "ccee19ce495b9d7fdf08867db3c6b6282006312e",
+          "mode": "100644"
+        },
+        "rules/architecture-compound-components.md": {
+          "sha256": "f246af13dc269b521cf20eb8ad99a0cb645beac381c8c9b117262c34612c8457",
+          "git_blob": "e5e3043cb5a81b83dce0389848b828455f00854f",
+          "mode": "100644"
+        },
+        "rules/patterns-children-over-render-props.md": {
+          "sha256": "7c45a0d21b3c4126a32cba916ee31adeae195386ad1dbbe6634aedb7457aa0ad",
+          "git_blob": "d4345ee30aea5f1b11815251edca7ebd0aefe2e2",
+          "mode": "100644"
+        },
+        "rules/patterns-explicit-variants.md": {
+          "sha256": "8c19e596e61807549d01ce8c6954c6358199f97a8511c0c02c625ec0efda8c0e",
+          "git_blob": "56e32e8bee5e5768f747db4e9718a6c2b54bfce5",
+          "mode": "100644"
+        },
+        "rules/react19-no-forwardref.md": {
+          "sha256": "881830adb7534c4b2d70db426556646ad9837f5478f744f35641f635ada22227",
+          "git_blob": "e0d8f8a76f14888f2fafc8cccd3d9395e4711d0d",
+          "mode": "100644"
+        },
+        "rules/state-context-interface.md": {
+          "sha256": "09e73afbf9285fa416679cc864a287b9e8b821d0969272ab784295386d8c9bc3",
+          "git_blob": "d961bede0c6c6e318f6ba3aca9b5dfcdb768d8f9",
+          "mode": "100644"
+        },
+        "rules/state-decouple-implementation.md": {
+          "sha256": "76a8c1eb29a70d8996ab3f71260345af2f7bc89deab815a421d6c87c6591a9c3",
+          "git_blob": "71a5afaa7d7078c262c92d32c3b97723de62f99f",
+          "mode": "100644"
+        },
+        "rules/state-lift-state.md": {
+          "sha256": "74c54038a6c554c748fe31cec673b80861b5d920b7553cf78cdf10d18b4b759b",
+          "git_blob": "d7fe27b54933135f9050365b6c2001c101029d51",
+          "mode": "100644"
+        }
+      },
+      "packaging_files": {
+        "UPSTREAM-LICENSE-README.md": "7c02f64b08fc6c4eef03c01d64f3e2ed478193ccfcbd14edba379abe23304651"
+      },
+      "required_skills": [],
+      "optional_workflow_dependencies": []
+    },
+    {
+      "name": "playwright-cli",
+      "category": "quality",
+      "path": "skills/playwright-cli",
+      "repository": "https://github.com/microsoft/playwright-cli.git",
+      "upstream_path": "skills/playwright-cli",
+      "commit": "b85c7a736bb473bf55b584e54a09ffa698d6d871",
+      "source_urls": [
+        "https://github.com/microsoft/playwright-cli/tree/b85c7a736bb473bf55b584e54a09ffa698d6d871/skills/playwright-cli"
+      ],
+      "distribution": "vendored",
+      "license": "Apache-2.0",
+      "files": {
+        "SKILL.md": {
+          "sha256": "9bba755285a4c9ad72a4a41b9c7baef6fb516d329c0b44ed0573715f4479b906",
+          "git_blob": "0a75c909eb7c8d93d9f81954b1b6dc5165c963f4",
+          "mode": "100644"
+        },
+        "references/element-attributes.md": {
+          "sha256": "bf19aa4671e0a50a0fefa9c790f39124e803060eefe395042b723c29fcb7faa2",
+          "git_blob": "4e9fa6b99103bbe4e1262c37a9c4a664dfe1dbd5",
+          "mode": "100644"
+        },
+        "references/playwright-tests.md": {
+          "sha256": "c5b0719fef2cfdff50bd744051b2f9afc119775db4b48e9b2882c1cf3886797c",
+          "git_blob": "bec2ec90e4adbc6ed56f06ab19c34916ce7f736b",
+          "mode": "100644"
+        },
+        "references/pr-attachments.md": {
+          "sha256": "24b118e74598be72e73e24fe223d295b9099c85b1860a7c8f6e5690c9038fa2a",
+          "git_blob": "91663b58bccf34b1cd2790ef8ae335d45b3d99df",
+          "mode": "100644"
+        },
+        "references/request-mocking.md": {
+          "sha256": "54e801c9663fc2b6d68ceb058cb1c360724c2499f42acc7852a68e83e5b5f37c",
+          "git_blob": "9005fda67dfc4af13848fd9ebedee08420aeec97",
+          "mode": "100644"
+        },
+        "references/running-code.md": {
+          "sha256": "3029569ed6ddaeffc0b87badde967efdc2973b1677f078830098146eb3b78ebe",
+          "git_blob": "5bf7e8cfb52112da2ecd9600631fa8365fbb90f1",
+          "mode": "100644"
+        },
+        "references/session-management.md": {
+          "sha256": "a4f16271f95d3eec7bc56e659d8adbb8f6ad7d603a6fa15efdcdd071a50c6ce3",
+          "git_blob": "eb1bde35d9ce619d5cd939384d656e5c91310ebd",
+          "mode": "100644"
+        },
+        "references/storage-state.md": {
+          "sha256": "9ac47f9ae4a1aedcd2077f8ac9ab1ba6bee1962cb83ff51adcd36fb6d83b5ec6",
+          "git_blob": "bb5021a09097127c051eaad83a262ff755e62971",
+          "mode": "100644"
+        },
+        "references/test-generation.md": {
+          "sha256": "27ecb11ef647999bd7486695bb1aacc3682097e6bb5742804cb6c8769c2b5364",
+          "git_blob": "33ae38be7b16027df11a963b5cd35af0677cf492",
+          "mode": "100644"
+        },
+        "references/tracing.md": {
+          "sha256": "ef73e71bee792e341df9cd4f60529c929ade48b538ac76e033f4f20843e8dbda",
+          "git_blob": "51b8d30489a66c5f4d1b559cd68a41267e92831e",
+          "mode": "100644"
+        },
+        "references/video-recording.md": {
+          "sha256": "1c800b897824cb54394c34265d8ebffdbb530adfc8d612c5d798b667a1799f48",
+          "git_blob": "f0b528ab1a70f2e8d5a828862a3dd89b8644239b",
+          "mode": "100644"
+        }
+      },
+      "packaging_files": {
+        "LICENSE.upstream.txt": "9a7110fc2d2f964038e5dc49128f908f29f47a574c961cba16085914e879cbda"
       },
       "required_skills": [],
       "optional_workflow_dependencies": []

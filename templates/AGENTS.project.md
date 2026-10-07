@@ -21,7 +21,7 @@ Personal development baseline for Bryan. Fill the project context before impleme
 - Install grill-with-docs together with grilling and domain-modeling; all are bundled. Invocation through a Skill tool still requires host support.
 - Before first use of Matt's engineering skills, invoke setup-matt-pocock-skills in this project. It confirms the tracker and domain layout, shows drafts and writes docs/agents/issue-tracker.md and docs/agents/domain.md plus an Agent skills block in the existing instructions file. Do not duplicate AGENTS.md/CLAUDE.md.
 - `to-spec`, `to-tickets` and `code-review` read that project configuration. Draft locally when authorized; publishing externally requires specific approval. Installing the skills alone does not execute their setup.
-- Use security-best-practices and security-threat-model when their explicit security triggers apply, supabase-postgres-best-practices for Postgres work, webapp-testing for browser verification, and web-design-guidelines for UI audits. Verify runtime prerequisites first.
+- Use security-best-practices and security-threat-model when their explicit security triggers apply, supabase-postgres-best-practices for Postgres work, playwright-cli for browser verification, and web-design-guidelines for UI audits. Verify runtime prerequisites first.
 - If code-review cannot use subagents, disclose that limitation and offer a manual review of standards and spec.
 - Use TDD for meaningful programmable behavior; run lint, typecheck, appropriate tests and build using actual project commands.
 - Apply server-side validation and authorization, secret handling, safe database access and checks appropriate to the project's data.

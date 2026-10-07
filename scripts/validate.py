@@ -1,6 +1,5 @@
 """Validate the selected collection without running third-party code."""
 
-import argparse
 import hashlib
 import json
 import re
@@ -11,20 +10,17 @@ from urllib.parse import unquote
 
 ROOT = Path(__file__).resolve().parents[1]
 SELECTED = {
-    "good-design", "grill-me", "grill-with-docs", "frontend-design",
-    "vercel-react-best-practices", "diagnosing-bugs", "code-review",
+    "grill-with-docs", "frontend-design",
+    "vercel-composition-patterns", "diagnosing-bugs", "code-review",
     "codebase-design", "domain-modeling", "tdd", "to-spec", "to-tickets",
     "grilling", "setup-matt-pocock-skills", "security-best-practices",
-    "security-threat-model", "webapp-testing", "supabase-postgres-best-practices",
+    "security-threat-model", "playwright-cli", "supabase-postgres-best-practices",
     "web-design-guidelines",
 }
-EXTERNAL = {"good-design", "grill-me"}
 SOURCES = {
-    "good-design": ("kipperacademy/skillpper", "good-design"),
-    "grill-me": ("kipperacademy/skillpper", "grill-me"),
     "frontend-design": ("anthropics/skills", "skills/frontend-design"),
-    "webapp-testing": ("anthropics/skills", "skills/webapp-testing"),
-    "vercel-react-best-practices": ("vercel-labs/agent-skills", "skills/react-best-practices"),
+    "playwright-cli": ("microsoft/playwright-cli", "skills/playwright-cli"),
+    "vercel-composition-patterns": ("vercel-labs/agent-skills", "skills/composition-patterns"),
     "web-design-guidelines": ("vercel-labs/agent-skills", "skills/web-design-guidelines"),
     "security-best-practices": ("openai/skills", "skills/.curated/security-best-practices"),
     "security-threat-model": ("openai/skills", "skills/.curated/security-threat-model"),
@@ -34,7 +30,7 @@ SOURCES = {
        for name in {"grill-with-docs", "code-review", "codebase-design", "domain-modeling",
                     "tdd", "to-spec", "to-tickets", "diagnosing-bugs", "setup-matt-pocock-skills"}},
 }
-APACHE_LICENSED = {"frontend-design", "webapp-testing", "security-best-practices", "security-threat-model"}
+APACHE_LICENSED = {"frontend-design", "playwright-cli", "security-best-practices", "security-threat-model"}
 REQUIRED_SKILLS = {
     "grill-with-docs": ["grilling", "domain-modeling"],
     "code-review": ["setup-matt-pocock-skills"],
@@ -80,11 +76,9 @@ def load_manifest(root):
         safe_path(root, entry["path"])
         if not re.fullmatch(r"[a-f0-9]{40}", entry["commit"]):
             raise ValueError(f"Unpinned commit for {name}")
-        expected_distribution = "external" if name in EXTERNAL else "vendored"
-        if entry["distribution"] != expected_distribution:
+        if entry["distribution"] != "vendored":
             raise ValueError(f"Unexpected distribution for {name}")
-        expected_license = "NOASSERTION" if name in EXTERNAL else (
-            "Apache-2.0" if name in APACHE_LICENSED else "MIT")
+        expected_license = "Apache-2.0" if name in APACHE_LICENSED else "MIT"
         if entry["license"] != expected_license:
             raise ValueError(f"Unexpected license for {name}")
         if entry.get("required_skills", []) != REQUIRED_SKILLS.get(name, []):
@@ -146,27 +140,37 @@ def verify_folder(root, entry):
         raise ValueError(f"Missing description for {entry['name']}")
 
 
-def validate(root, require_external=False):
+def validate(root):
     root = root.resolve()
     data = load_manifest(root)
-    absent_external = []
     for entry in data["skills"]:
-        folder = safe_path(root, entry["path"])
-        if entry["distribution"] == "external" and not folder.exists() and not require_external:
-            absent_external.append(entry["name"])
-            continue
         verify_folder(root, entry)
     skills_root = root / "skills"
     for path in skills_root.iterdir():
         if path.name not in SELECTED or not path.is_dir():
             raise ValueError(f"Unselected content under skills/: {path.name}")
     if (root / ".git").exists():
-        result = subprocess.run(["git", "-C", str(root), "ls-files", "-z", "--", "skills"],
+        staged = subprocess.run(["git", "-C", str(root), "ls-files", "--stage", "-z", "--", "skills"],
                                 capture_output=True, check=True)
-        tracked = result.stdout.decode().split("\0")
-        for path in tracked:
-            if any(path.startswith(f"skills/{name}/") for name in EXTERNAL):
-                raise ValueError(f"External-only file tracked by Git: {path}")
+        index = {}
+        for row in staged.stdout.split(b"\0"):
+            if not row:
+                continue
+            metadata, path = row.split(b"\t", 1)
+            mode, blob, stage = metadata.decode().split()
+            if stage != "0":
+                raise ValueError(f"Unresolved Git index conflict: {path.decode()}")
+            index[path.decode()] = (mode, blob)
+        for entry in data["skills"]:
+            for relative, record in entry["files"].items():
+                path = entry["path"] + "/" + relative
+                if path not in index:
+                    continue
+                mode, blob = index[path]
+                if mode != record["mode"]:
+                    raise ValueError(f"Git file mode mismatch: {path}")
+                if blob != record["git_blob"]:
+                    raise ValueError(f"Git index blob mismatch: {path}")
     for file in root.rglob("*.md"):
         if ".git" in file.parts or file.is_relative_to(skills_root):
             continue
@@ -183,22 +187,16 @@ def validate(root, require_external=False):
     for directory in ("scripts", "tests"):
         for file in (root / directory).glob("*.py"):
             compile(file.read_text(encoding="utf-8"), str(file), "exec")
-    return absent_external
+    return len(data["skills"])
 
 
 def main():
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--require-external", action="store_true",
-                        help="Require the two local-only skills to have been fetched")
-    args = parser.parse_args()
     try:
-        absent = validate(ROOT, args.require_external)
+        count = validate(ROOT)
     except (ValueError, KeyError, OSError, subprocess.CalledProcessError) as error:
         print(f"FAIL: {error}", file=sys.stderr)
         return 1
-    print(f"OK: {len(SELECTED)} selected sources; {len(SELECTED) - len(absent)} skill folders verified.")
-    if absent:
-        print("External-only, not fetched in this clone: " + ", ".join(absent))
+    print(f"OK: all {count} selected skill folders verified and distributed.")
     print("OK: required Matt Pocock skill dependencies are available.")
     return 0
 

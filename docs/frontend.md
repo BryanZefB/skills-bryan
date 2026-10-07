@@ -11,7 +11,7 @@
 
 ## Design e acessibilidade
 
-Use `good-design` para jornada e objetivo do produto; `frontend-design` para execução visual. Defina tokens de cor, tipografia, espaçamento e componentes reutilizáveis proporcionais ao projeto.
+Use `grilling` para esclarecer a jornada e o objetivo, `frontend-design` para execução visual e `web-design-guidelines` para revisar UX e acessibilidade. Defina tokens de cor, tipografia, espaçamento e componentes reutilizáveis proporcionais ao projeto.
 
 Teste layouts estreitos e largos, navegação por teclado, foco visível, rótulos, ordem de leitura, contraste e mensagens de erro. Respeite preferência por movimento reduzido e evite depender só de cor. Use [WCAG 2.2](https://www.w3.org/TR/WCAG22/) como referência para critérios aplicáveis, sem declarar conformidade apenas por usar uma biblioteca.
 
@@ -23,6 +23,6 @@ Separe caches públicos e privados. Um resultado personalizado não pode ser com
 
 ## Desempenho e testes
 
-Use `vercel-react-best-practices` onde houver evidência de impacto: chamadas independentes em paralelo, menos waterfalls, payloads limitados, imagens adequadas e divisão de bundles. Meça antes e depois; não memorize tudo automaticamente.
+Use `vercel-composition-patterns` para arquitetura de componentes e estado. Para desempenho, siga a documentação oficial de [React Profiler](https://react.dev/reference/react/Profiler) e o [guia de produção do Next.js](https://nextjs.org/docs/app/guides/production-checklist), conforme a versão do projeto. Priorize onde houver evidência de impacto: chamadas independentes em paralelo, menos waterfalls, payloads limitados, imagens adequadas e divisão de bundles. Meça antes e depois; não memorize tudo automaticamente.
 
 Teste comportamentos visíveis e fluxos essenciais pela interface pública. Inspecione console, rede e DOM; faça validação visual responsiva e acessibilidade. Performance e acessibilidade não são garantidas por um build que passa.
