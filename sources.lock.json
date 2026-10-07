@@ -1,0 +1,804 @@
+{
+  "schema_version": 1,
+  "reviewed_on": "2026-10-07",
+  "skills_cli_version": "1.7.1",
+  "skills": [
+    {
+      "name": "good-design",
+      "category": "design",
+      "path": "skills/good-design",
+      "repository": "https://github.com/kipperacademy/skillpper.git",
+      "upstream_path": "good-design",
+      "commit": "163871cc03be9941216cadf817180e7b00a6ed21",
+      "source_urls": [
+        "https://github.com/kipperacademy/skillpper/tree/main/good-design"
+      ],
+      "distribution": "external",
+      "license": "NOASSERTION",
+      "files": {
+        "SKILL.md": {
+          "sha256": "6955feef0f9807bf83fe99b768ed808c596f39cde161d298cfa4f4cfc065f13a",
+          "git_blob": "1fd6c56d6aab80afac30a7cfea66145791295bcc",
+          "mode": "100644"
+        },
+        "agents/openai.yaml": {
+          "sha256": "b4e0f4495bbbde433d938be46d41cf2ed41e95c5bafdb2f7a6aa87105a84f3b1",
+          "git_blob": "38f4d21dc3c39e8fa086b32a463926c87f546cfc",
+          "mode": "100644"
+        },
+        "references/fontes.md": {
+          "sha256": "207d659221e18a85e7172cfebb47fcc3ee6f233ae8e448ed9ce6c839f3c553f7",
+          "git_blob": "5a7836fae0b4b091f2baa711fac0723fbe29fad5",
+          "mode": "100644"
+        },
+        "references/fundamentos.md": {
+          "sha256": "1e60b97c03377a9d992232f0e013221cb536a26bda5d5e4b769f9c069f7cbd6b",
+          "git_blob": "dc742447df1462b66542795bfb8ffc483eb4ecf1",
+          "mode": "100644"
+        },
+        "references/jornadas-e-superficies.md": {
+          "sha256": "0216e0103896580dbefca6378a3c930cd49cb725f1d50bb692ed29f107bc7784",
+          "git_blob": "e4ea02ceeb1595f440761074fd82cdd4b8b67ff8",
+          "mode": "100644"
+        },
+        "skill-review.yaml": {
+          "sha256": "c679fc4f66e72de5ca49474ce2f2f2236cf9f3e6224433e85587b38bb2443e93",
+          "git_blob": "306737c2707ed5e55e66233485c214ae0f39f1cc",
+          "mode": "100644"
+        }
+      },
+      "packaging_files": {},
+      "required_skills": [],
+      "optional_workflow_dependencies": []
+    },
+    {
+      "name": "grill-me",
+      "category": "planning",
+      "path": "skills/grill-me",
+      "repository": "https://github.com/kipperacademy/skillpper.git",
+      "upstream_path": "grill-me",
+      "commit": "163871cc03be9941216cadf817180e7b00a6ed21",
+      "source_urls": [
+        "https://github.com/kipperacademy/skillpper/tree/main/grill-me"
+      ],
+      "distribution": "external",
+      "license": "NOASSERTION",
+      "files": {
+        "SKILL.md": {
+          "sha256": "00577e095d66581940557e24da86a48c2b4984977b110c194eed00e2f2d42e8a",
+          "git_blob": "94c73ed88fe73d3bdd157d92fb012f54dc4f9b5b",
+          "mode": "100644"
+        },
+        "references/interactive-interview.md": {
+          "sha256": "6cec91809f9f2b313f9fa7405e01d99ed69af1cc492e3cf1e30be1543b7416fa",
+          "git_blob": "4bb21aa147a8a635743a647cae77d6120823e9b8",
+          "mode": "100644"
+        },
+        "skill-review.yaml": {
+          "sha256": "8b18b287d5141c979daad251f96ae3ba111cad80217f435e9f33ecf43ae6355d",
+          "git_blob": "10fb55eaf50f5759cb35af93c6514a38b63ea229",
+          "mode": "100644"
+        }
+      },
+      "packaging_files": {},
+      "required_skills": [],
+      "optional_workflow_dependencies": []
+    },
+    {
+      "name": "grill-with-docs",
+      "category": "planning",
+      "path": "skills/grill-with-docs",
+      "repository": "https://github.com/mattpocock/skills.git",
+      "upstream_path": "skills/engineering/grill-with-docs",
+      "commit": "f3fc5632f401156837ee3872f14fe33ccf1024ea",
+      "source_urls": [
+        "https://github.com/mattpocock/skills/tree/main/skills/engineering/grill-with-docs",
+        "https://www.skills.sh/mattpocock/skills/grill-with-docs"
+      ],
+      "distribution": "vendored",
+      "license": "MIT",
+      "files": {
+        "SKILL.md": {
+          "sha256": "7de372c13488f1ee96cc11cd8907b56b6809cc93eef776eeddd37de6b6cbe3fe",
+          "git_blob": "62b9efb6f991d1b229adee7506962f13ced0c499",
+          "mode": "100644"
+        },
+        "agents/openai.yaml": {
+          "sha256": "94cd0ab161fb468a836349f5ed482ba58ce8e709a05c57ce533d739dbd35cca9",
+          "git_blob": "5dbe2780a51be3e9b118bd7758a73e54a9384e11",
+          "mode": "100644"
+        }
+      },
+      "packaging_files": {
+        "LICENSE.upstream.txt": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5"
+      },
+      "required_skills": [
+        "grilling",
+        "domain-modeling"
+      ],
+      "optional_workflow_dependencies": []
+    },
+    {
+      "name": "frontend-design",
+      "category": "frontend",
+      "path": "skills/frontend-design",
+      "repository": "https://github.com/anthropics/skills.git",
+      "upstream_path": "skills/frontend-design",
+      "commit": "683bc88e56f3e09ba94f7055977f3d3aa499f202",
+      "source_urls": [
+        "https://github.com/anthropics/skills/tree/main/skills/frontend-design",
+        "https://www.skills.sh/anthropics/skills/frontend-design"
+      ],
+      "distribution": "vendored",
+      "license": "Apache-2.0",
+      "files": {
+        "LICENSE.txt": {
+          "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+          "git_blob": "f433b1a53f5b830a205fd2df78e2b34974656c7b",
+          "mode": "100644"
+        },
+        "SKILL.md": {
+          "sha256": "d91970639e9f5c37682ac7ab60094d35f1c7c1f38d731bd56396563aee10c1d3",
+          "git_blob": "a5333457c414d20d625f307df945842c0952ecc3",
+          "mode": "100644"
+        }
+      },
+      "packaging_files": {},
+      "required_skills": [],
+      "optional_workflow_dependencies": []
+    },
+    {
+      "name": "vercel-react-best-practices",
+      "category": "frontend",
+      "path": "skills/vercel-react-best-practices",
+      "repository": "https://github.com/vercel-labs/agent-skills.git",
+      "upstream_path": "skills/react-best-practices",
+      "commit": "063bee94c3f4df8453406c830b0a7df0f2860278",
+      "source_urls": [
+        "https://github.com/vercel-labs/agent-skills/tree/main/skills/react-best-practices",
+        "https://www.skills.sh/vercel-labs/agent-skills/vercel-react-best-practices"
+      ],
+      "distribution": "vendored",
+      "license": "MIT",
+      "files": {
+        "AGENTS.md": {
+          "sha256": "fc93e7421177bbf869cce892bc60a6c83a4517d974bc3bf65c4e2c1e58a6ccf6",
+          "git_blob": "4e340a50684a8e7811d5bfa4df48bd9989d0fd87",
+          "mode": "100644"
+        },
+        "README.md": {
+          "sha256": "9eafb2123d3b8b2aef41fba0db2648a3f4f49996f8c7c8bb2c86263befd8b48a",
+          "git_blob": "f283e1c0c21c5b13c848452528c3949ff544846c",
+          "mode": "100644"
+        },
+        "SKILL.md": {
+          "sha256": "71ed7794962fa6e803ee83030517b5b93a9f70fbfeb431ec4535c5480a8d8355",
+          "git_blob": "237988de4a66dd8a71d30a2c24ebe1a86b58d04e",
+          "mode": "100644"
+        },
+        "metadata.json": {
+          "sha256": "c4e18bac3290fbe1b471a605867d4df68b03144ea26b8befdbe8f9d8fd124354",
+          "git_blob": "3bec38b176cc71d105895ec4678bbe79305dcb4c",
+          "mode": "100644"
+        },
+        "rules/_sections.md": {
+          "sha256": "01c59969e4e867f0708c8f8ef9c6d87fab9a07d0586244f429ff84013db8a115",
+          "git_blob": "4d20c144bc3b9265fc5976c704a8dd60ed3a806a",
+          "mode": "100644"
+        },
+        "rules/_template.md": {
+          "sha256": "99df2a3ea088c6c22de2484ddc7e964d0e9923846f44c63380343ecc64455442",
+          "git_blob": "1e9e70703485021e0b969f5731f38c8b9f8694db",
+          "mode": "100644"
+        },
+        "rules/advanced-effect-event-deps.md": {
+          "sha256": "55ed8f9f27a1bff803d6fa55828176207714b02123cbb97ddb8a90d88024a723",
+          "git_blob": "24d901b62be66f6088eb1de5b262e67f5c337d57",
+          "mode": "100644"
+        },
+        "rules/advanced-event-handler-refs.md": {
+          "sha256": "a3097edeecfb2ff6851cd66ed8cdf0617c3c88180504bee824aa6e75a215bbbc",
+          "git_blob": "97e7ade243aa6dae50d6faa5111dea0d04778ead",
+          "mode": "100644"
+        },
+        "rules/advanced-init-once.md": {
+          "sha256": "3e4dc22173eb0e2b6dcf583e3babd862b8696328f8f59aee7c4d746c5bc05f6c",
+          "git_blob": "73ee38e5e74c0afa28cb730afe3275479432092a",
+          "mode": "100644"
+        },
+        "rules/advanced-use-latest.md": {
+          "sha256": "8a3f64dfe5a77d1564248faf17fe662ae75b55d497a243cb30b38eb07ccbbf9a",
+          "git_blob": "9c7cb501693d4a9521697f13dbd5906dd99f0257",
+          "mode": "100644"
+        },
+        "rules/async-api-routes.md": {
+          "sha256": "523338540d73427dc14c0cbb19f2741ebccdf8b105a7b2c1b33d2905cf237a42",
+          "git_blob": "6feda1ef0ac06b57b33c7b5bd6a19ca88d6c8a34",
+          "mode": "100644"
+        },
+        "rules/async-cheap-condition-before-await.md": {
+          "sha256": "03107c1f70a293cd58a8abc5474c5548e20ea4efdf01b6d45aae7ad0ac1cb32c",
+          "git_blob": "5799d7f6ee6e9d70422048ab0cae06ca021d22b2",
+          "mode": "100644"
+        },
+        "rules/async-defer-await.md": {
+          "sha256": "f3c142d090615abdcc99d31c123be37b31f0f1ed8d9ec9f7789a3bc6883ae0fb",
+          "git_blob": "460b5e16baf9c66f85e4169eb9d43e4d07f2ce94",
+          "mode": "100644"
+        },
+        "rules/async-dependencies.md": {
+          "sha256": "16ef469f877e30c6b8e1e1b4bc3e527312fa3c6318cb785a4eca186ea236131a",
+          "git_blob": "0484ebab993f3db78277e8731872473d02475e6d",
+          "mode": "100644"
+        },
+        "rules/async-parallel.md": {
+          "sha256": "6d2f841896279e976dfcdc1ac89e70771ac188baadfd43c096b5706cb838b961",
+          "git_blob": "64133f6c31fec81eaaabd712586337d20122e09f",
+          "mode": "100644"
+        },
+        "rules/async-suspense-boundaries.md": {
+          "sha256": "de05fedac2eb7ae563b887b5a424464ec3dfaf84e5b7797467ebe2a796ac8afc",
+          "git_blob": "1fbc05b04ed2474637b12014a77688750e78f931",
+          "mode": "100644"
+        },
+        "rules/bundle-analyzable-paths.md": {
+          "sha256": "62090b5c815fd71bf1133dce754f51abc16a9456d0ccd025fd627de27726e92a",
+          "git_blob": "8276f156cf1aa8a611bd5bc3cadcb362e16ccd13",
+          "mode": "100644"
+        },
+        "rules/bundle-barrel-imports.md": {
+          "sha256": "e648f6d54525f07a691357040ca5bff6ea3424788a91ff63812adb29622a671b",
+          "git_blob": "22d1050196671b7bc9f9aaf88cc665ba6fa8deb0",
+          "mode": "100644"
+        },
+        "rules/bundle-conditional.md": {
+          "sha256": "09c8259c3efb04fc0abb8e412ccbda217c222ae8118516283e571c995fe3a7d4",
+          "git_blob": "99d6fc90e31d683d2b6b71353b92d620b484b644",
+          "mode": "100644"
+        },
+        "rules/bundle-defer-third-party.md": {
+          "sha256": "3719fb47b191e8db4fe22686ec88448ad5af9e6838585425abbe103d0b642e37",
+          "git_blob": "db041d1510e51defeade05926ba4e6bbad1068b5",
+          "mode": "100644"
+        },
+        "rules/bundle-dynamic-imports.md": {
+          "sha256": "401817a7369f315fc5a68a1095742ff7d53d0461906880dc9d64a41495ee1986",
+          "git_blob": "60b62695e7a080e2020ff2242d8d841c5e3ecbc4",
+          "mode": "100644"
+        },
+        "rules/bundle-preload.md": {
+          "sha256": "d1f7cc28da7cd5ab249acd287edc5b761afcfb194e9cb62cd44c5f3543db2de2",
+          "git_blob": "7000504065472628ae614786a3faadd23b0435a7",
+          "mode": "100644"
+        },
+        "rules/client-event-listeners.md": {
+          "sha256": "242a873349febc1ce685e85617994784dbab92c2eaa68aed7fed5a83e7680e93",
+          "git_blob": "aad4ae91605d715aad8e92b76bd7fb85c91d7cdf",
+          "mode": "100644"
+        },
+        "rules/client-localstorage-schema.md": {
+          "sha256": "0fb7cdf9dc93fdf22f87e3669f953fb9d4ac9b0be42eec4a29fe9a2560610b88",
+          "git_blob": "d30a1a7d4f85b0d50a0808eaa1b382c6deb595f4",
+          "mode": "100644"
+        },
+        "rules/client-passive-event-listeners.md": {
+          "sha256": "1f35016f9053de69e884ee9be00654e37979c2ca85f5e57764dc2626ff7acb4b",
+          "git_blob": "ce39a889efb4452ec4c044555ff818301dcf7ece",
+          "mode": "100644"
+        },
+        "rules/client-swr-dedup.md": {
+          "sha256": "644652c39c6cc00de8d1c77a7273612e868dc3f7edda30764164c12ec0f764a3",
+          "git_blob": "2a430f27fd6abdc1b1b2f809b7a60114ff506790",
+          "mode": "100644"
+        },
+        "rules/js-batch-dom-css.md": {
+          "sha256": "480b891b9eaf96e929dc1e964274a4828e3a78009b7d00ccd965a0d425215959",
+          "git_blob": "a62d84ed8149b6d4f173debc7043af03f8f8dd06",
+          "mode": "100644"
+        },
+        "rules/js-cache-function-results.md": {
+          "sha256": "3daaa11d24f4295cb6be8bc6f407f2ce83cc7b5bd1f0e68891ea8ab835721dc7",
+          "git_blob": "180f8ac8fffd7e6ee320242d59d06565d40a12f8",
+          "mode": "100644"
+        },
+        "rules/js-cache-property-access.md": {
+          "sha256": "73e47431e74878a927061bf0ddc7cd91a7556cb35d2573f3421e82300d9ae311",
+          "git_blob": "39eec9061b4ca820150cc8183fb73f9e0c91ce85",
+          "mode": "100644"
+        },
+        "rules/js-cache-storage.md": {
+          "sha256": "11b826b0433898c1ece2d3547010d8e77db9fb240185748c45db91493de9b6cc",
+          "git_blob": "aa4a30c08176aabd27b41fa44d5c1981457b675f",
+          "mode": "100644"
+        },
+        "rules/js-combine-iterations.md": {
+          "sha256": "71add08aeeb43091d4ff4c0b2842cce8b4bdef8ad3e732cc034bb5a84827e746",
+          "git_blob": "044d017ec3b24b53e46d638acd1d936a22ac6323",
+          "mode": "100644"
+        },
+        "rules/js-early-exit.md": {
+          "sha256": "925ce5ce87f3347186ca62212f29cc6baa2b8c85a96d2720ad07c3d0abf781c0",
+          "git_blob": "f46cb89c6cbe06e481aba0136848e3b17263ba96",
+          "mode": "100644"
+        },
+        "rules/js-flatmap-filter.md": {
+          "sha256": "9e5b166a41914d975bef7635467f8fb32cd98b5c3126c0bc6f163490812fb5f0",
+          "git_blob": "ee0edf0da256eb8b62c5a998c768c51eb520e8cd",
+          "mode": "100644"
+        },
+        "rules/js-hoist-regexp.md": {
+          "sha256": "f9e9aef2f7c2307dd7310f283df85dcada45fc43e9bb941b0c3aa414dec21ec4",
+          "git_blob": "dae3fefdc0a1db66badcd4875489715edcdb038b",
+          "mode": "100644"
+        },
+        "rules/js-index-maps.md": {
+          "sha256": "5df1bdc2cfabb2c98abd55d26762e5c18189535c2e686184f426082e62920391",
+          "git_blob": "9d357a00b15ac67cdd638886f5197a13173a637d",
+          "mode": "100644"
+        },
+        "rules/js-length-check-first.md": {
+          "sha256": "8b54a311c826b299272f29187fc58bc55772a04c4a72eeb29456ee96dc9fc624",
+          "git_blob": "8b89573630fdc3aa10564273f390ecc7e2b1cd3e",
+          "mode": "100644"
+        },
+        "rules/js-min-max-loop.md": {
+          "sha256": "87dfb67e2f39df6ad8bcfb5b78c5fb364d3c07554ad188a202408d99f3763421",
+          "git_blob": "4b6656e96aecf3ae6ade52974090ae8b3e3f2bb5",
+          "mode": "100644"
+        },
+        "rules/js-request-idle-callback.md": {
+          "sha256": "ee08f83905b4011abbc33d594033157d77561b5bbd9b36b04f0f409581ffec32",
+          "git_blob": "d81927e5f0ddb9fa4eece79197728bfc4382cbfe",
+          "mode": "100644"
+        },
+        "rules/js-set-map-lookups.md": {
+          "sha256": "a7fd781a6ba9ad49065961b6f9a90ef486bf6b648390e1a08704025f98e1642b",
+          "git_blob": "680a4892ee291c432bf8e769a44d0f1eb102b74b",
+          "mode": "100644"
+        },
+        "rules/js-tosorted-immutable.md": {
+          "sha256": "d0a5e1b0fec48a0a81397957e2f068e224329f7c42cb5feeed8aae6fa64025e8",
+          "git_blob": "eae8b3f8aed2c7a893ceaae4cab55fa1c444b309",
+          "mode": "100644"
+        },
+        "rules/rendering-activity.md": {
+          "sha256": "1e5e7eaf3555e61d6a2e900089c676527d26259501db5594f59544b6c664f85a",
+          "git_blob": "c957a490b7c2688542766150741e85e066539251",
+          "mode": "100644"
+        },
+        "rules/rendering-animate-svg-wrapper.md": {
+          "sha256": "9c6ae0ca7a51434e803887c64cded760956579a1452ccb80a461a03f9c937c77",
+          "git_blob": "646744cbe53b213c6fa5ead54ef107510e5be89d",
+          "mode": "100644"
+        },
+        "rules/rendering-conditional-render.md": {
+          "sha256": "2ec2fa23c4148285144687050c52369adba3da2fbe3d486f8d3e0aad8f06f2bc",
+          "git_blob": "7e866f5852dac80e0822e7f7c33476f5c9fc22f1",
+          "mode": "100644"
+        },
+        "rules/rendering-content-visibility.md": {
+          "sha256": "64eee6d5b916fe74df33363994b27fc7f71bea3bcedc7ee04bda23107ca3e6e4",
+          "git_blob": "aa6656362b2c0dad9ffea788b5850843d6c0629e",
+          "mode": "100644"
+        },
+        "rules/rendering-hoist-jsx.md": {
+          "sha256": "93b229560fae92005ed9a2a829064607b39b2e984e92d221d05b2d41df2b7c0e",
+          "git_blob": "32d2f3fcea53dadcf847231ee20c60fa2c5c3049",
+          "mode": "100644"
+        },
+        "rules/rendering-hydration-no-flicker.md": {
+          "sha256": "dc7ab358c67c177bca6e6f360fbc935ebe4efa928c0ba3ebd3f9f3d9e2000ca3",
+          "git_blob": "5cf0e79b69afd7564b965c09435a2c7ee79eb2bd",
+          "mode": "100644"
+        },
+        "rules/rendering-hydration-suppress-warning.md": {
+          "sha256": "915bacb934e2927d84b37a3f3d225a47b309ac8f9e494ed2bcb66ce07c5676a2",
+          "git_blob": "24ba2513a29f5259b3184695d2d4da25e03e42ac",
+          "mode": "100644"
+        },
+        "rules/rendering-resource-hints.md": {
+          "sha256": "351b1095d641717b930f1b2253282b7120af3023bc74e06c17675168d4286864",
+          "git_blob": "1290bef06baf459f85dc5856ffc4486951224a48",
+          "mode": "100644"
+        },
+        "rules/rendering-script-defer-async.md": {
+          "sha256": "4cea07b7875ba7fc2c7465ff23b63a2bb334f90aaf2d9293d38d67b05fdb32ab",
+          "git_blob": "ee275ed1c06da8f1ae70e744e47965799eaebf02",
+          "mode": "100644"
+        },
+        "rules/rendering-svg-precision.md": {
+          "sha256": "ed468533f6e95f622859c884b122cf21f9f593ed6bb3d500a54de4b9f9bcb9fb",
+          "git_blob": "6d7712860365294936a1b736d29d3eb970b91da7",
+          "mode": "100644"
+        },
+        "rules/rendering-usetransition-loading.md": {
+          "sha256": "3a1249c3f13026b6f54ab5712c388df219d6af01b12aa542749acd99a46f4bc1",
+          "git_blob": "0c1b0b98e884d2c77bdec66df754693bd48c7777",
+          "mode": "100644"
+        },
+        "rules/rerender-defer-reads.md": {
+          "sha256": "234050a77faf50cb306be10a9e15bd4421134ab5907e75f13e6d78e2bd262dc9",
+          "git_blob": "e867c95f02fe6ed6ac2f91fdf1c0922304e0423a",
+          "mode": "100644"
+        },
+        "rules/rerender-dependencies.md": {
+          "sha256": "17eb5830956fb56486fd3cfc7431f5849d39751730c05ad9e77dd4f0c27169c5",
+          "git_blob": "47a4d92685702e3a3b07073c62a61800fa0a6d7d",
+          "mode": "100644"
+        },
+        "rules/rerender-derived-state-no-effect.md": {
+          "sha256": "cb11ec76f50aa7b6847269f02d79b120c889a30d9ecd2c1d578f75144419c77a",
+          "git_blob": "3d9fe4050794ea6655add6bee50cfbc104e5dc31",
+          "mode": "100644"
+        },
+        "rules/rerender-derived-state.md": {
+          "sha256": "1c326bb67b01fb084eb00c8911b0a7cff54681c2315b629f88e49b64eaa6481d",
+          "git_blob": "e5c899f6c073338bbd1b73c0275bc3e5e7d9ae7b",
+          "mode": "100644"
+        },
+        "rules/rerender-functional-setstate.md": {
+          "sha256": "5e68df6b2ae8058e67f476ff1ac67bde159f5a9d18df439e46eabcdeb7b52e58",
+          "git_blob": "b004ef45e347503947fee397b6c3d163b0a317fb",
+          "mode": "100644"
+        },
+        "rules/rerender-lazy-state-init.md": {
+          "sha256": "4ae844740f266fc8cbf050701230286624a2440ec5be67b9a63d9edc3c580573",
+          "git_blob": "4ecb350fbadff3db805b72429276e672d42736dc",
+          "mode": "100644"
+        },
+        "rules/rerender-memo-with-default-value.md": {
+          "sha256": "81c47476564ad8a79fc68fc442734255ca7d6829424359464503fda0a9f9a0dd",
+          "git_blob": "63570491848cb42c2bc7073bceb754893a6a4cfa",
+          "mode": "100644"
+        },
+        "rules/rerender-memo.md": {
+          "sha256": "1f258990c2f27ff6256b3cc5c43300631bb3f0d81f749aed08d07fcdcc131dd1",
+          "git_blob": "f8982ab612105a3b7faee1292b797338e7fb5271",
+          "mode": "100644"
+        },
+        "rules/rerender-move-effect-to-event.md": {
+          "sha256": "abc2cbf167bee056743023351e96806a411d3398da8802093620aecf0721f029",
+          "git_blob": "dd58a1af091b3cf5cb271d25904af4feb836d1aa",
+          "mode": "100644"
+        },
+        "rules/rerender-no-inline-components.md": {
+          "sha256": "1cc32907a770272524ba682eef9e7efdd8ad4533b6f89b718a1fcd7d1d0eb6a3",
+          "git_blob": "d97592acefced05bc4a8538c77d226fa24c08534",
+          "mode": "100644"
+        },
+        "rules/rerender-simple-expression-in-memo.md": {
+          "sha256": "5bdcf2d1558ba5204e643c887b7b4060f89630969425651eb68e96427d97f800",
+          "git_blob": "59dfab0f3b048097627e0ca6e4c8da36629a5268",
+          "mode": "100644"
+        },
+        "rules/rerender-split-combined-hooks.md": {
+          "sha256": "6f45d703343484ef9acef9388397f3642966ae6a5a258899a0cf1f9977cfbf6c",
+          "git_blob": "89d805644dbffe3877bc1356bdf8ad416a5c715b",
+          "mode": "100644"
+        },
+        "rules/rerender-transitions.md": {
+          "sha256": "60f4033909a62df5e5b8c601494f9e50a562e2f8c1c2d81eac24f38142265f1c",
+          "git_blob": "d99f43f764232e994a49a1df89ec9d624552f439",
+          "mode": "100644"
+        },
+        "rules/rerender-use-deferred-value.md": {
+          "sha256": "8c3579576a61a949884167745dcfaf1d5426ba305cc61fd0a79602d70fda4909",
+          "git_blob": "619c04b0142bf5a5b7d0f69532a56b797a78f664",
+          "mode": "100644"
+        },
+        "rules/rerender-use-ref-transient-values.md": {
+          "sha256": "f1a649af9d1d0b5c762f6c9c4c1c70c90d7df82aa10296ee87aadb78c1b76c54",
+          "git_blob": "cf04b81f8a531eacd07a32e8917fb3ed3c1bbecb",
+          "mode": "100644"
+        },
+        "rules/server-after-nonblocking.md": {
+          "sha256": "d0b8d24a3db9f0f65f9e2bddbf230b0e03a5f60e1229d93a4a18f5e7a991c7c2",
+          "git_blob": "e8f5b260f5fc6d58141bc61e0a091569adb81e7e",
+          "mode": "100644"
+        },
+        "rules/server-auth-actions.md": {
+          "sha256": "a2ca8aa102839251c7971ec784560fab943c20b36fe6f80365d4110c13260c23",
+          "git_blob": "ee82c0442bc69ffae7bf20c07709d57893da1123",
+          "mode": "100644"
+        },
+        "rules/server-cache-lru.md": {
+          "sha256": "1924b64561841923b88a657085097a0aeba3e0ba2d5470b9f5c15cc10d6ae70f",
+          "git_blob": "ef6938aa53c55dc3c0035bd6c66838810d870260",
+          "mode": "100644"
+        },
+        "rules/server-cache-react.md": {
+          "sha256": "fddeea6c870bb3da4134b61d54b7d09b83d2603f929b7547cd3dc1dc269edd5c",
+          "git_blob": "87c9ca33168a321a59fbaaa84843e2f48c99751a",
+          "mode": "100644"
+        },
+        "rules/server-dedup-props.md": {
+          "sha256": "c2747424cdac46be62f835f245a0aa887b0090b416d28e2ac8676702645eeb37",
+          "git_blob": "fb24a2562c73fadbb9a11a79897c2cf93ea3c69a",
+          "mode": "100644"
+        },
+        "rules/server-hoist-static-io.md": {
+          "sha256": "5abea4dd882b13661bd5f7dfb93f9e547d5f08176c61c448ade91b210ed5d49f",
+          "git_blob": "25205c2fc42d0dd684d6423acde642774329a8cc",
+          "mode": "100644"
+        },
+        "rules/server-no-shared-module-state.md": {
+          "sha256": "4d869bf1cd2f1632e5ca4c0e64b1cf0e71c5f5a0f940bc8a22174d205e735ed7",
+          "git_blob": "ff7d9f29c6e0e42ec1471acec8a3c7f394c8358d",
+          "mode": "100644"
+        },
+        "rules/server-parallel-fetching.md": {
+          "sha256": "569a2e9fc04f9606686cd75c5894ef8781b502786a7fffe241396846c7733472",
+          "git_blob": "1affc835a601a894fd02de08e6c9cdfd76d34b64",
+          "mode": "100644"
+        },
+        "rules/server-parallel-nested-fetching.md": {
+          "sha256": "ad5d9656984d4a959997a2367bf59cc6632297b4634a1dd13a087939d83f30b3",
+          "git_blob": "be1dc25075e40e6bda46cb24dc5a6f42b916b0e8",
+          "mode": "100644"
+        },
+        "rules/server-serialization.md": {
+          "sha256": "f4c7d68b29c82381baad059c4a7f09e868e71ec9c3115a26ad3ae7d24c0dfe1f",
+          "git_blob": "39c5c4164c31be7f171ea2f4b3b32fe47709a651",
+          "mode": "100644"
+        }
+      },
+      "packaging_files": {
+        "UPSTREAM-LICENSE-README.md": "7c02f64b08fc6c4eef03c01d64f3e2ed478193ccfcbd14edba379abe23304651"
+      },
+      "required_skills": [],
+      "optional_workflow_dependencies": []
+    },
+    {
+      "name": "diagnosing-bugs",
+      "category": "quality",
+      "path": "skills/diagnosing-bugs",
+      "repository": "https://github.com/mattpocock/skills.git",
+      "upstream_path": "skills/engineering/diagnosing-bugs",
+      "commit": "f3fc5632f401156837ee3872f14fe33ccf1024ea",
+      "source_urls": [
+        "https://github.com/mattpocock/skills/tree/main/skills/engineering/diagnosing-bugs",
+        "https://www.skills.sh/mattpocock/skills/diagnosing-bugs"
+      ],
+      "distribution": "vendored",
+      "license": "MIT",
+      "files": {
+        "SKILL.md": {
+          "sha256": "849198df88cdb65fd0d97236604c1fca7ff2f22d2f705f9724a800d0266b118d",
+          "git_blob": "d039541ddd1c46e6ddbd662fe99d49b686fc5e12",
+          "mode": "100644"
+        },
+        "agents/openai.yaml": {
+          "sha256": "3e430dbe4334a87597488c060cb3dc3786bb00c9182877d6f5ec41f62490e90b",
+          "git_blob": "a13a755a77634ce61a649a3a0d905a66d3865b35",
+          "mode": "100644"
+        },
+        "scripts/hitl-loop.template.sh": {
+          "sha256": "35103539fc36873eea36074769ad454f9379d6fc8b2dc0e26ce987fd3bfe5503",
+          "git_blob": "243198464a8401a7ba1d63b3708fa43c3d067665",
+          "mode": "100644"
+        }
+      },
+      "packaging_files": {
+        "LICENSE.upstream.txt": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5"
+      },
+      "required_skills": [],
+      "optional_workflow_dependencies": []
+    },
+    {
+      "name": "code-review",
+      "category": "quality",
+      "path": "skills/code-review",
+      "repository": "https://github.com/mattpocock/skills.git",
+      "upstream_path": "skills/engineering/code-review",
+      "commit": "f3fc5632f401156837ee3872f14fe33ccf1024ea",
+      "source_urls": [
+        "https://github.com/mattpocock/skills/tree/main/skills/engineering/code-review"
+      ],
+      "distribution": "vendored",
+      "license": "MIT",
+      "files": {
+        "SKILL.md": {
+          "sha256": "09eb147f793e4647949edd32dbad278f0554dfb56e0d46b699cd4c2c55bf0357",
+          "git_blob": "373a4f26e6cfa3617778397945bb069d9cb184bc",
+          "mode": "100644"
+        },
+        "agents/openai.yaml": {
+          "sha256": "8229ca854e11dc8e6aef2131ee03f31fb1561cf905fab9ccc325180cf3331352",
+          "git_blob": "9076774ba327f49068db9273feceda03bfe940fa",
+          "mode": "100644"
+        }
+      },
+      "packaging_files": {
+        "LICENSE.upstream.txt": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5"
+      },
+      "required_skills": [],
+      "optional_workflow_dependencies": [
+        "setup-matt-pocock-skills"
+      ]
+    },
+    {
+      "name": "codebase-design",
+      "category": "architecture",
+      "path": "skills/codebase-design",
+      "repository": "https://github.com/mattpocock/skills.git",
+      "upstream_path": "skills/engineering/codebase-design",
+      "commit": "f3fc5632f401156837ee3872f14fe33ccf1024ea",
+      "source_urls": [
+        "https://github.com/mattpocock/skills/tree/main/skills/engineering/codebase-design"
+      ],
+      "distribution": "vendored",
+      "license": "MIT",
+      "files": {
+        "DEEPENING.md": {
+          "sha256": "f3dd099ce99289bd213914d8ee3e2429b78309c3957ca4583f7659551b1d53c1",
+          "git_blob": "cd94075cfd754d147555c5d747a16431ed4c7dd8",
+          "mode": "100644"
+        },
+        "DESIGN-IT-TWICE.md": {
+          "sha256": "52b52e75655a27aea59c6966b410bac82448968ad46ef1ebb9f07c274e3ae010",
+          "git_blob": "d0990138c35c800bd821289a73115e52680c1620",
+          "mode": "100644"
+        },
+        "SKILL.md": {
+          "sha256": "2c20617f87ec8af6a434859f381b2f061a69b530444e74eb39e78bb016a6d1e2",
+          "git_blob": "3f63c8146dd2604b419c929e9876b90c30d410e9",
+          "mode": "100644"
+        },
+        "agents/openai.yaml": {
+          "sha256": "edebc9e4fcfe102114012575eaa9600b9b5fd08c311664f389c36e7bc717740f",
+          "git_blob": "3180715edb37f6e96bec42f92f00169faa8886ef",
+          "mode": "100644"
+        }
+      },
+      "packaging_files": {
+        "LICENSE.upstream.txt": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5"
+      },
+      "required_skills": [],
+      "optional_workflow_dependencies": []
+    },
+    {
+      "name": "domain-modeling",
+      "category": "architecture",
+      "path": "skills/domain-modeling",
+      "repository": "https://github.com/mattpocock/skills.git",
+      "upstream_path": "skills/engineering/domain-modeling",
+      "commit": "f3fc5632f401156837ee3872f14fe33ccf1024ea",
+      "source_urls": [
+        "https://github.com/mattpocock/skills/tree/main/skills/engineering/domain-modeling"
+      ],
+      "distribution": "vendored",
+      "license": "MIT",
+      "files": {
+        "ADR-FORMAT.md": {
+          "sha256": "944c92aa790e8fbdc9199640b170979abb8a34ba8d0fe18c2a01a63bce140ca0",
+          "git_blob": "d7e61f30a9fd8ca70d9ee68f019c2a9ebf2d13f7",
+          "mode": "100644"
+        },
+        "GLOSSARY-FORMAT.md": {
+          "sha256": "21dcc40cdec8e151a829b98ab1517c1867bc444e3665134a98c6983411996801",
+          "git_blob": "9c0b4c7a2e8507c23cbb5e0baa66d81699321cc6",
+          "mode": "100644"
+        },
+        "SKILL.md": {
+          "sha256": "7b925d7b1e341a2eeae33ad68a8a8c0ab889a38ddd22a7598e4c240e5a7556a3",
+          "git_blob": "a4438c6879c517d1a08e2b5fbca049b632688dfe",
+          "mode": "100644"
+        },
+        "agents/openai.yaml": {
+          "sha256": "f6bf2aa996c6e6f53fdd0708e18a0d16a56aed8322cca59fedbe3c0d2c75f06b",
+          "git_blob": "7f1522d2f11506ee205275ab7c282aa52366ecf6",
+          "mode": "100644"
+        }
+      },
+      "packaging_files": {
+        "LICENSE.upstream.txt": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5"
+      },
+      "required_skills": [],
+      "optional_workflow_dependencies": []
+    },
+    {
+      "name": "tdd",
+      "category": "quality",
+      "path": "skills/tdd",
+      "repository": "https://github.com/mattpocock/skills.git",
+      "upstream_path": "skills/engineering/tdd",
+      "commit": "f3fc5632f401156837ee3872f14fe33ccf1024ea",
+      "source_urls": [
+        "https://github.com/mattpocock/skills/tree/main/skills/engineering/tdd"
+      ],
+      "distribution": "vendored",
+      "license": "MIT",
+      "files": {
+        "SKILL.md": {
+          "sha256": "5505d25bbaa8fc14a79e4d20163936958992a2995b7f1dd1d6197edc9ed722e0",
+          "git_blob": "01eadaa34e7c9a63a67d6dc3cce1cc81b0e49985",
+          "mode": "100644"
+        },
+        "agents/openai.yaml": {
+          "sha256": "ea6f01cf1b8c06a4b0f5b649d74b1b8ce8685e72af1b38d70d877693e092af0b",
+          "git_blob": "651b838a7663e027b1b8884491e867f26bb9a021",
+          "mode": "100644"
+        },
+        "mocking.md": {
+          "sha256": "3ceb807fdf4a47d6a93d4d9a891e5ba6d362a6247bd08adc451feebfc17361ef",
+          "git_blob": "71cbfee674d93244ce81d1830b930ca9a69200bd",
+          "mode": "100644"
+        },
+        "tests.md": {
+          "sha256": "859f9e592c188fda4fc7277dd180e4ce9c7a2e13f6efe1f6f29eccc9d28c106a",
+          "git_blob": "7ab86479f925a1f9e8ba680af33cb3b12e015381",
+          "mode": "100644"
+        }
+      },
+      "packaging_files": {
+        "LICENSE.upstream.txt": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5"
+      },
+      "required_skills": [],
+      "optional_workflow_dependencies": []
+    },
+    {
+      "name": "to-spec",
+      "category": "planning",
+      "path": "skills/to-spec",
+      "repository": "https://github.com/mattpocock/skills.git",
+      "upstream_path": "skills/engineering/to-spec",
+      "commit": "f3fc5632f401156837ee3872f14fe33ccf1024ea",
+      "source_urls": [
+        "https://github.com/mattpocock/skills/tree/main/skills/engineering/to-spec"
+      ],
+      "distribution": "vendored",
+      "license": "MIT",
+      "files": {
+        "SKILL.md": {
+          "sha256": "43ad9cf318e5e7d3d1fa360253a37021796dc87a0c2e595ad262661a10f85088",
+          "git_blob": "3f52599ae2a4347aee5a07432c2707518e691a7f",
+          "mode": "100644"
+        },
+        "agents/openai.yaml": {
+          "sha256": "1c5b4d1e3d8e52287ef19cc2742fdbbfae1914ac75d33af3e4c8174f08cc55bb",
+          "git_blob": "549e6f76f020a1b9ba65f52ccda336566ee6222a",
+          "mode": "100644"
+        }
+      },
+      "packaging_files": {
+        "LICENSE.upstream.txt": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5"
+      },
+      "required_skills": [],
+      "optional_workflow_dependencies": [
+        "setup-matt-pocock-skills"
+      ]
+    },
+    {
+      "name": "to-tickets",
+      "category": "planning",
+      "path": "skills/to-tickets",
+      "repository": "https://github.com/mattpocock/skills.git",
+      "upstream_path": "skills/engineering/to-tickets",
+      "commit": "f3fc5632f401156837ee3872f14fe33ccf1024ea",
+      "source_urls": [
+        "https://github.com/mattpocock/skills/tree/main/skills/engineering/to-tickets"
+      ],
+      "distribution": "vendored",
+      "license": "MIT",
+      "files": {
+        "SKILL.md": {
+          "sha256": "56ec23c5b2782785d4e65bff9e315b6d3aeb4ef977c174a219e99489fada1995",
+          "git_blob": "9b77a01db9460c99c22d03c910c349f890f12c0e",
+          "mode": "100644"
+        },
+        "agents/openai.yaml": {
+          "sha256": "21bc6215fffcd7614e9f772bb1760e87cc5fc7dcc707e7d282bc9414267a6090",
+          "git_blob": "24605a5db64e4fc750b999aa94aea126bee814ee",
+          "mode": "100644"
+        }
+      },
+      "packaging_files": {
+        "LICENSE.upstream.txt": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5"
+      },
+      "required_skills": [],
+      "optional_workflow_dependencies": [
+        "setup-matt-pocock-skills"
+      ]
+    }
+  ]
+}

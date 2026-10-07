@@ -1,0 +1,9 @@
+# Impedir conversão de finais de linha nas cópias byte a byte.
+* text=auto eol=lf
+/skills/** -text
+/sources.lock.json text eol=lf
+*.py text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+/docs/** text eol=lf
+/templates/** text eol=lf
