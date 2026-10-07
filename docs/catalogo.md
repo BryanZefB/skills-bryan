@@ -22,7 +22,7 @@
 
 ## Configuração e limites
 
-A [auditoria histórica](verificacao-2026-10-07.md) motivou a retirada de quatro entradas. Consulte as [substituições e seus limites de equivalência](substituicoes.md). O catálogo atual tem 17 skills distribuídas integralmente.
+As 17 skills são distribuídas integralmente. Para trocar cópias de versões anteriores, consulte a [migração](instalacao.md#atualizações-e-migração).
 
 - `grill-with-docs` chama literalmente `grilling` e `domain-modeling`; ambas estão incluídas. `grilling` é a opção de entrevista mantida pelo próprio Matt Pocock.
 - `code-review`, `to-spec` e `to-tickets` precisam de configuração por projeto. `setup-matt-pocock-skills` e seus templates originais estão incluídos. Siga o [guia de Matt Pocock](matt-pocock.md) antes do primeiro uso. As dependências são verificadas pelo validador do acervo.
@@ -40,3 +40,7 @@ Página simples: `grilling` → `frontend-design` → `web-design-guidelines` + 
 API ou sistema: entrevista → `domain-modeling` + `codebase-design` → `to-spec` → `to-tickets` quando necessário → `tdd` → `code-review`.
 
 Bug: esclarecer o sintoma e os limites de acesso → `diagnosing-bugs` → teste de regressão na interface adequada → revisão.
+
+## Possíveis complementos
+
+Avalie uma skill específica para NestJS e outra para Docker/CI/CD quando o projeto exigir. Antes de adicionar, confira autoria, licença, dependências e sobreposição com o acervo; novas skills precisam de autorização de Bryan.

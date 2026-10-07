@@ -21,3 +21,14 @@ python -m ruff check scripts tests
 ```
 
 Os scripts não sobrescrevem as skills originais para corrigir incompatibilidades. Documente limitações e proponha alternativas. Conteúdo sem licença explícita permanece fora do índice Git.
+
+## Padrões de manutenção
+
+- Use Python 3.11+ e biblioteca padrão; passe comandos externos como listas de argumentos.
+- Aceite apenas fontes e caminhos selecionados no lock; recuse symlinks e travessia com `..`.
+- Mantenha JSON e documentação própria em UTF-8, com links relativos válidos.
+- Preserve todos os arquivos originais das skills, incluindo referências, exemplos e metadados. Nunca os reformate durante uma limpeza.
+- Valide inventários, hashes, modos Git, dependências e escopo; teste falhas reais do validador.
+- Evite versionar caches, resultados temporários e relatos de execução. Use o histórico de commits e PRs para registrar entregas anteriores.
+
+Os [padrões de qualidade para aplicações](docs/qualidade.md) orientam os projetos consumidores. O CI deste acervo verifica empacotamento e os scripts próprios; não executa helpers de terceiros nem instala skills globalmente.
