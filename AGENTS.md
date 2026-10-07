@@ -4,7 +4,7 @@ This is Bryan's personal skill collection, not an application project.
 
 - Read README.md, sources.lock.json and docs/catalogo.md before changing the collection.
 - Ask focused questions before starting a new task. Use decisions already answered in the conversation; do not restart an interview unnecessarily.
-- Only the seventeen selected skill names in the lock are authorized. Bryan approved replacing the four problematic entries with official alternatives; the migration is recorded in docs/substituicoes.md. Recommend other missing skills in docs/lacunas.md; never install them automatically.
+- Only the seventeen selected skill names in the lock are authorized. Migration notes are in docs/instalacao.md. Recommend other missing skills in docs/catalogo.md; never install them automatically.
 - Preserve upstream files exactly. Do not rewrite, translate, reformat or merge skill instructions. Packaging-only license files are separately recorded in the lock.
 - Keep original skill instructions in English and own documentation in Portuguese. Existing upstream references in other languages remain untouched.
 - All selected skills must be fully vendored with their licenses; no external-only entries or fetching step.

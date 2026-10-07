@@ -11,6 +11,6 @@ Autoria permanece com os mantenedores originais. Este acervo não reivindica aut
 | [OpenAI](https://github.com/openai/skills) | security-best-practices, security-threat-model | Apache-2.0 no LICENSE.txt de cada skill | Cópia integral com licenças e referências |
 | [Supabase](https://github.com/supabase/agent-skills) | supabase-postgres-best-practices | MIT no LICENSE original | Cópia integral; LICENSE.upstream.txt acompanha a pasta |
 
-As duas entradas sem licença explícita foram retiradas do catálogo e do lock. A seleção atual não possui fontes externas nem licenças indeterminadas. O [registro de substituições](docs/substituicoes.md) preserva o motivo e as alternativas escolhidas.
+A seleção atual não possui fontes externas nem licenças indeterminadas. Consulte a [migração de versões anteriores](docs/instalacao.md#atualizações-e-migração) para substituir cópias antigas.
 
 As únicas adições dentro de pastas distribuídas são os avisos de licença de empacotamento descritos acima. Todo arquivo que existia nas pastas de origem é preservado byte a byte. A revisão do acervo foi realizada em 7 de outubro de 2026; mudanças nas fontes não são sincronizadas automaticamente.
