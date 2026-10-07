@@ -2,8 +2,10 @@
 
 | Área | Skill | Quando usar | Disponibilidade |
 | --- | --- | --- | --- |
+| Configuração | [setup-matt-pocock-skills](../skills/setup-matt-pocock-skills/SKILL.md) | Definir tracker e layout do domínio de cada projeto antes das skills de engenharia | Distribuída; execução interativa por projeto |
+| Planejamento | [grilling](../skills/grilling/SKILL.md) | Testar decisões e ideias em uma entrevista estruturada | Distribuída; dependência de grill-with-docs |
 | Planejamento | [grill-me](https://github.com/kipperacademy/skillpper/tree/163871cc03be9941216cadf817180e7b00a6ed21/grill-me) | Entrevistar antes de implementar: escopo, stack, regras e critérios | Obtenção local da fonte |
-| Planejamento | [grill-with-docs](../skills/grill-with-docs/SKILL.md) | Entrevista com registro de decisões e vocabulário | Dependência `grilling` ausente |
+| Planejamento | [grill-with-docs](../skills/grill-with-docs/SKILL.md) | Entrevista com registro de decisões e vocabulário | Distribuída com grilling e domain-modeling |
 | Planejamento | [to-spec](../skills/to-spec/SKILL.md) | Sintetizar uma conversa já esclarecida em especificação | Configurar tracker e rótulos antes de publicar |
 | Planejamento | [to-tickets](../skills/to-tickets/SKILL.md) | Dividir uma especificação em entregas verticais e dependências | Aprovar a divisão e configurar o destino |
 | Arquitetura | [domain-modeling](../skills/domain-modeling/SKILL.md) | Definir termos do domínio, glossário e ADRs | Distribuída |
@@ -11,19 +13,25 @@
 | Design de produto | [good-design](https://github.com/kipperacademy/skillpper/tree/163871cc03be9941216cadf817180e7b00a6ed21/good-design) | Avaliar jornada, ativação, clareza, retenção e limites éticos | Obtenção local da fonte |
 | Frontend | [frontend-design](../skills/frontend-design/SKILL.md) | Criar interfaces com direção visual consistente | Distribuída |
 | Frontend | [vercel-react-best-practices](../skills/vercel-react-best-practices/SKILL.md) | Revisar desempenho de React e Next.js | Distribuída |
+| Frontend | [web-design-guidelines](../skills/web-design-guidelines/SKILL.md) | Auditar interface, UX e acessibilidade | Distribuída; busca diretrizes atualizadas pela rede |
+| Segurança | [security-best-practices](../skills/security-best-practices/SKILL.md) | Desenvolver/revisar segurança quando solicitado explicitamente | Distribuída; Python, JavaScript/TypeScript e Go |
+| Segurança | [security-threat-model](../skills/security-threat-model/SKILL.md) | Mapear ameaças e controles de um projeto concreto quando solicitado | Distribuída; exige contexto do sistema |
+| Banco de dados | [supabase-postgres-best-practices](../skills/supabase-postgres-best-practices/SKILL.md) | Projetar e revisar schemas, migrations, SQL, RLS, índices e desempenho | Distribuída; Postgres em diferentes ambientes |
+| Qualidade | [webapp-testing](../skills/webapp-testing/SKILL.md) | Verificar aplicações web locais com navegador | Distribuída; Python, Playwright e browser no projeto consumidor |
 | Qualidade | [tdd](../skills/tdd/SKILL.md) | Implementar comportamentos em ciclos de teste vermelho e verde | Confirmar interfaces de teste antes |
 | Qualidade | [diagnosing-bugs](../skills/diagnosing-bugs/SKILL.md) | Reproduzir e investigar bugs ou regressões com um sinal verificável | Distribuída; há helper Bash opcional |
 | Qualidade | [code-review](../skills/code-review/SKILL.md) | Comparar uma mudança com padrões e especificação | Exige referência Git, contexto e suporte a subagentes |
 
-## Limitações preservadas
+## Configuração e limites
 
-- `grill-with-docs` chama literalmente `grilling` e `domain-modeling`. `grill-me` não é uma substituição automática para `grilling`. Enquanto a dependência não for autorizada, use `grill-me` e `domain-modeling` explicitamente em etapas distintas, sem afirmar que executou o wrapper original.
-- `code-review`, `to-spec` e `to-tickets` referem-se ao setup de tracker do autor. Essa skill de setup não faz parte da seleção. Informe no projeto o tracker, como acessar a especificação, o destino, a convenção de rótulos e as permissões. Se o host ainda exigir o setup ausente, pare essa etapa; não instale a dependência silenciosamente. O exemplo de contexto está no [modelo de projeto](../templates/AGENTS.project.md).
+- `grill-with-docs` chama literalmente `grilling` e `domain-modeling`; ambas estão incluídas. `grill-me` da Kipper continua uma opção independente, com outro protocolo de entrevista.
+- `code-review`, `to-spec` e `to-tickets` precisam de configuração por projeto. `setup-matt-pocock-skills` e seus templates originais estão incluídos. Siga o [guia de Matt Pocock](matt-pocock.md) antes do primeiro uso. As dependências são verificadas pelo validador do acervo.
 - `to-spec` sintetiza contexto existente; a entrevista deve acontecer antes. `to-tickets` pede aprovação da divisão antes de publicar. A publicação no tracker deve estar autorizada.
 - `code-review` prevê revisão em subagentes. Se a ferramenta não permitir delegação, informe a limitação; uma revisão manual dos dois eixos é alternativa, sem alegar execução integral da skill.
 - Os originais de Matt preservam `disable-model-invocation` e `agents/openai.yaml` quando presentes. O comportamento de descoberta e invocação varia por agente; invoque pelo nome se necessário.
 - Os scripts de diagnóstico em `.sh` exigem Bash (por exemplo Git Bash ou WSL no Windows). Não são executados pela instalação ou pelo CI deste acervo.
-- Os guias de backend e segurança complementam a seleção como documentação, sem serem skills dedicadas ou garantia de segurança.
+- As skills de segurança têm gatilhos próprios: não transforme toda edição em uma auditoria. Nenhuma skill oferece garantia automática de segurança.
+- O repositório `openai/skills` declara depreciação e aponta para `openai/plugins`. As duas sugestões autorizadas foram preservadas na revisão registrada; não houve substituição por outra fonte. Confira manutenção e compatibilidade antes de futuras atualizações.
 
 ## Combinações úteis
 

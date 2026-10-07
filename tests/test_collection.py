@@ -12,7 +12,7 @@ from unittest.mock import patch
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 from fetch_external import fetch
-from validate import EXTERNAL, load_manifest, safe_path, validate
+from validate import EXTERNAL, SELECTED, load_manifest, safe_path, validate
 
 
 class CollectionTests(unittest.TestCase):
@@ -46,8 +46,19 @@ class CollectionTests(unittest.TestCase):
 
     def test_duplicate_manifest_name_is_rejected(self):
         self.change_lock(lambda data: data["skills"].append(data["skills"][0]))
-        with self.assertRaisesRegex(ValueError, "exactly the 12"):
+        with self.assertRaisesRegex(ValueError, f"exactly the {len(SELECTED)}"):
             load_manifest(self.root)
+
+    def test_required_dependency_cannot_be_dropped(self):
+        self.change_lock(lambda data: next(entry for entry in data["skills"]
+                                          if entry["name"] == "grill-with-docs").update(required_skills=[]))
+        with self.assertRaisesRegex(ValueError, "Required skill dependencies changed"):
+            load_manifest(self.root)
+
+    def test_dependency_folder_is_required_in_clean_clone(self):
+        shutil.rmtree(self.root / "skills/grilling")
+        with self.assertRaisesRegex(ValueError, "Missing skill folder: grilling"):
+            validate(self.root)
 
     def test_unapproved_repository_is_rejected(self):
         self.change_lock(lambda data: data["skills"][0].update(repository="https://example.com/code.git"))
