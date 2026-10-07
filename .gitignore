@@ -1,0 +1,14 @@
+# Fontes sem licença explícita: uso local, nunca republicação automática.
+/skills/good-design/
+/skills/grill-me/
+
+# Arquivos locais e segredos
+__pycache__/
+*.py[cod]
+.venv/
+node_modules/
+.env
+.env.*
+!.env.example
+.DS_Store
+.scratch/

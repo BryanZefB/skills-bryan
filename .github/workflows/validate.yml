@@ -1,0 +1,34 @@
+name: Validar acervo
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validar (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04, windows-latest]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.13'
+      - name: Validar integridade e documentação
+        run: python scripts/validate.py
+      - name: Instalar linter fixado
+        run: python -m pip install -r requirements-dev.txt
+      - name: Lint dos scripts próprios
+        run: python -m ruff check scripts tests
+      - name: Testar proteções dos scripts
+        run: python -m unittest discover -s tests -v

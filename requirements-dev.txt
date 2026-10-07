@@ -1,0 +1,2 @@
+# Only for linting the collection's own Python code; not required for usage.
+ruff==0.16.10
