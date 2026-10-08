@@ -33,6 +33,7 @@ Troque os nomes depois de `--agent` pelos agentes que utiliza. Escolha instalaç
 2. Adapte o [modelo de instruções](templates/AGENTS.project.md) ao projeto, integrando-o às regras existentes.
 3. Faça o [setup das skills de Matt Pocock](docs/matt-pocock.md) em cada projeto consumidor.
 4. Siga o [fluxo de trabalho](docs/fluxo-de-trabalho.md): perguntas, definição, implementação e revisão.
+5. Para interfaces, siga as [diretrizes de design e frontend](docs/frontend.md) e adapte o [modelo DESIGN.md](templates/DESIGN.md) à raiz do projeto, integrando decisões existentes.
 
 O instalador copia as skills. Os guias, as regras pessoais e os runtimes de testes precisam ser configurados no projeto conforme o guia de instalação.
 
@@ -45,7 +46,7 @@ O instalador copia as skills. Os guias, as regras pessoais e os runtimes de test
 | Configuração de Matt Pocock | [Setup por projeto](docs/matt-pocock.md) |
 | Planejamento e autorização | [Fluxo de trabalho](docs/fluxo-de-trabalho.md) |
 | Clean Architecture | [Arquitetura](docs/arquitetura.md) |
-| React e Next.js | [Frontend](docs/frontend.md) |
+| Design, React e Next.js | [Frontend](docs/frontend.md) e [modelo DESIGN.md](templates/DESIGN.md) |
 | NestJS, ORM e PostgreSQL | [Backend](docs/backend.md) |
 | Segurança e dados | [Segurança](docs/seguranca.md) |
 | TDD, revisão e branches | [Qualidade](docs/qualidade.md) |

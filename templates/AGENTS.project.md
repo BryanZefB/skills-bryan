@@ -15,6 +15,7 @@ Personal development baseline for Bryan. Fill the project context before impleme
 ## Workflow
 
 - Ask focused questions before implementing. Reuse answers already given; resolve decisions that affect behavior, security, architecture or testing.
+- For UI work, read the existing DESIGN.md and design system before asking questions. Follow the frontend guide provided under Standards. Record the visual direction in the project's DESIGN.md using the collection template when useful; point to canonical tokens in code and integrate existing decisions. Treat aesthetic defaults as adaptable guidance and report actual verification results.
 - Propose a short plan and agree the public interfaces to test before using tdd.
 - Prefer Clean Architecture for business applications, with dependencies pointing inward. Keep static pages and simple work proportional to their needs.
 - Use the selected skills relevant to the task, not the whole collection on every request. Preserve source invocation rules.
