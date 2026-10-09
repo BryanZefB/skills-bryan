@@ -1,5 +1,6 @@
 # Arquivos locais e segredos
 __pycache__/
+.ruff_cache/
 *.py[cod]
 .venv/
 node_modules/

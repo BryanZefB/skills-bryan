@@ -2,16 +2,9 @@
 
 Requisitos: Git, Node.js/npm para o CLI, Python 3.11+ para validar o acervo. Os comandos usam `skills@1.7.1`, versão verificada na preparação do acervo. Consulte o [CLI oficial](https://github.com/vercel-labs/skills) antes de atualizar essa versão.
 
-## Do GitHub: 17 skills distribuídas
+## Instalação pelo GitHub
 
-Após o pull request ser incorporado à principal:
-
-```bash
-npx skills@1.7.1 add BryanZefB/skills-bryan --list
-npx skills@1.7.1 add BryanZefB/skills-bryan --skill frontend-design vercel-composition-patterns -a codex claude-code cursor --copy
-```
-
-Execute a instalação na raiz do projeto. O primeiro comando só lista. O segundo instala as duas skills selecionadas nos agentes indicados; personalize os nomes conforme sua necessidade. Para instalação global, acrescente `--global`. Para selecionar todas as disponíveis, use `--skill '*'`. O CLI oferece confirmação; revise conflitos antes de aceitar substituições.
+Os comandos para instalação por projeto, global e seleção individual estão no [README](../README.md#instalação-rápida). Execute na raiz do projeto consumidor e revise os conflitos apresentados pelo instalador. Os comandos usam a seleção publicada na branch principal; para revisar um PR antes do merge, use seu clone local.
 
 O CLI `skills@1.7.1` omite `metadata.json` nas cópias instaladas, por decisão do próprio instalador. Esse arquivo continua integral no acervo; instruções, referências, templates e licenças são preservados na instalação verificada. Codex e Cursor usam o diretório compartilhado `.agents/skills` nesta versão; Claude Code recebe `.claude/skills`.
 
@@ -34,7 +27,7 @@ npx skills@1.7.1 add /caminho/skills-bryan --skill '*' -a codex claude-code curs
 
 No Windows, use o caminho entre aspas, por exemplo `"C:\repos\skills-bryan"`. A CLI descobre as pastas disponíveis, incluindo `grilling` e `setup-matt-pocock-skills`. Para instalar o conjunto de Matt e configurar cada projeto, siga o [guia específico](matt-pocock.md).
 
-## Pré-requisitos das novas skills
+## Pré-requisitos de execução
 
 `playwright-cli` exige Node.js 18+ conforme a fonte, o CLI e um browser compatível. Prefira uma versão LTS suportada de Node.js e a instalação local no projeto. A versão de CLI avaliada nesta migração foi `@playwright/cli@0.1.22`:
 
@@ -60,8 +53,17 @@ Agentes que não leem `AGENTS.md` precisam de uma referência equivalente no mec
 
 Se o projeto não tiver acesso a este acervo, copie os guias necessários para `docs/standards/` e ajuste os caminhos no modelo. Confirme que o agente leu as regras antes da primeira implementação.
 
-## Atualizações controladas
+## Atualizações e migração
 
-Para migrar cópias já instaladas, consulte a [tabela de substituições](substituicoes.md), liste as skills instaladas no projeto e remova as antigas pelo mecanismo do agente antes de instalar as substitutas. Alterar este acervo não remove cópias em outros projetos nem instalações globais.
+Liste as skills instaladas no projeto e remova as antigas pelo mecanismo do agente antes de instalar as substitutas. Alterar este acervo não remove cópias em outros projetos nem instalações globais.
+
+| Skill antiga | Alternativa atual |
+| --- | --- |
+| `good-design` | `frontend-design` + `web-design-guidelines` |
+| `grill-me` | `grilling`; `grill-with-docs` para registrar decisões |
+| `vercel-react-best-practices` | `vercel-composition-patterns` |
+| `webapp-testing` | `playwright-cli` |
+
+As entradas da Kipper foram retiradas por falta de licença explícita; a anterior de React tinha links internos quebrados e o helper de testes deixava servidores ativos no Windows. As alternativas cobrem os casos principais, com diferenças: composição React foca componentes e estado, complementada pelo [guia de desempenho](frontend.md#desempenho-e-testes); as alternativas de design não reproduzem todo o material de estratégia de produto, ativação e retenção.
 
 Instalações com `--copy` são cópias, não atualizações automáticas. Uma atualização futura requer revisar as mudanças de origem, os metadados, as dependências e as licenças. Proponha uma branch e obtenha autorização antes de substituir skills instaladas. Não execute atualização global sem revisar o impacto.
