@@ -16,7 +16,7 @@ a { color: inherit; }
 .brand small { color: #b4c7bd; font-size: 11px; letter-spacing: .025em; }
 .rail nav { display: grid; gap: 7px; }
 .nav-link { display: flex; justify-content: space-between; align-items: center; color: #c7d5cc; text-decoration: none; padding: 12px 14px; font-size: 13px; border-left: 2px solid transparent; }
-.nav-link span { opacity: .6; font-size: 10px; }
+.nav-link span { opacity: 1; font-size: 10px; }
 .nav-link.active, .nav-link:hover { border-left-color: #d88a6c; background: #28463d; color: white; }
 .rail-bottom { margin-top: auto; color: #c3d2c6; font-size: 12px; }
 .rail-bottom p { color: #9cb4a6; line-height: 1.65; }
@@ -116,7 +116,7 @@ dialog::backdrop { background: rgba(11,32,24,.55); }
 .workflow-steps { display: grid; }
 .workflow-step { display: grid; grid-template-columns: 36px minmax(0,1fr) auto; gap: 16px; padding: 17px 3px; border-top: 1px solid var(--line); align-items: start; }
 .workflow-step.is-complete { background: #f7faf5; }
-.workflow-number { font: 500 22px "Newsreader", Georgia, serif; color: #ae6950; }
+.workflow-number { font: 500 22px "Newsreader", Georgia, serif; color: #9a492f; }
 .workflow-step label { display: flex; gap: 10px; align-items: center; color: var(--ink); font-size: 13px; cursor: pointer; }
 .workflow-step input { accent-color: #3f6957; width: 17px; height: 17px; flex: none; }
 .workflow-step p { color: var(--muted); font-size: 12px; line-height: 1.55; margin: 7px 0 0 27px; }

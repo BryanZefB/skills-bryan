@@ -64,9 +64,12 @@ try {
   assert.match(d.suggestedFilename(),/\.json$/);
   const backupPath=resolve(shots,'teste-backup.json');
   await d.saveAs(backupPath);
+  await page.locator('[data-stage-id]').selectOption('perdido');
+  assert.equal(await page.locator('[data-stage-id]').inputValue(),'perdido');
   page.once('dialog',dialog=>dialog.accept());
   await page.locator('#import-json').setInputFiles(backupPath);
-  assert.equal(await page.locator('#lead-rows tr').count(),1,'Importação JSON deve manter registro válido');
+  await page.waitForFunction(() => document.querySelector('[data-stage-id]')?.value === 'contatado');
+  assert.equal(await page.locator('#lead-rows tr').count(),1,'Importação JSON deve restaurar registro');
 
   for(const width of [320,375,414,768,1024,1440]){
     await page.setViewportSize({width,height:900});
