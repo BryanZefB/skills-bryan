@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Estúdio — painel privado no navegador para administrar oportunidades e demos de landing pages.">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Estúdio | Prospecção de landing pages</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+  <div class="shell">
+    <aside class="rail">
+      <div class="brand"><span class="brand-mark" aria-hidden="true">S.</span><span><strong>ESTÚDIO</strong><small>Operação comercial</small></span></div>
+      <nav aria-label="Seções do painel">
+        <a href="#oportunidades" class="nav-link active">Oportunidades <span>01</span></a>
+        <a href="#processo" class="nav-link">Processo <span>02</span></a>
+        <a href="#prompts" class="nav-link">Prompts IA <span>03</span></a>
+      </nav>
+      <div class="rail-bottom"><span class="quiet-dot" aria-hidden="true"></span> Dados salvos apenas neste navegador.<p>Exporte backups regularmente. Não há sincronização em nuvem.</p></div>
+    </aside>
+    <main id="conteudo">
+      <div class="topline"><span>PAINEL DE OPERAÇÃO</span><span id="today"></span></div>
+      <header class="page-header">
+        <div><p class="eyebrow">Seu negócio, organizado.</p><h1>Oportunidades<span class="period">.</span></h1><p class="subtitle">Da pesquisa local até o contrato fechado — cada etapa visível.</p></div>
+        <button class="button button-primary" id="add-lead" type="button">+ Nova empresa</button>
+      </header>
+      <section class="stats" aria-label="Resumo do funil">
+        <div class="stat"><span>Empresas no radar</span><strong id="stat-total">0</strong><small>Oportunidades registradas</small></div>
+        <div class="stat"><span>Prontas para contato</span><strong id="stat-ready">0</strong><small>Demonstrações preparadas</small></div>
+        <div class="stat"><span>Responderam</span><strong id="stat-answered">0</strong><small>Conversas em andamento ou fechadas</small></div>
+        <div class="stat"><span>Valor fechado</span><strong id="stat-revenue">R$ 0</strong><small id="stat-won">0 contratos fechados</small></div>
+      </section>
+      <section class="section" id="oportunidades" aria-labelledby="list-title">
+        <div class="section-heading"><div><p class="eyebrow">01 / PIPELINE</p><h2 id="list-title">Empresas e projetos</h2></div><span class="count" id="result-count">0 resultados</span></div>
+        <div class="toolbar">
+          <label class="search-field"><span class="sr-only">Buscar empresa, segmento ou cidade</span><input id="search" type="search" placeholder="Buscar empresa, segmento ou cidade..." autocomplete="off"></label>
+          <label class="select-field"><span class="sr-only">Filtrar etapa comercial</span><select id="stage-filter"><option value="">Todas as etapas</option></select></label>
+        </div>
+        <div class="table-wrap"><table>
+          <thead><tr><th scope="col">Empresa</th><th scope="col">Etapa comercial</th><th scope="col">Projeto / auditoria</th><th scope="col">Próxima ação</th><th scope="col">Links</th><th scope="col">Ações</th></tr></thead>
+          <tbody id="lead-rows"></tbody>
+        </table><div class="empty" id="empty"><strong>Ainda não há empresas.</strong><p>Cadastre a primeira oportunidade ou importe um backup.</p></div></div>
+      </section>
+      <section class="section process-section" id="processo" aria-labelledby="process-title">
+        <div class="section-heading"><div><p class="eyebrow">02 / RITUAL DE TRABALHO</p><h2 id="process-title">Da descoberta à entrega</h2></div></div>
+        <div class="steps">
+          <article><span class="step-no">01</span><h3>Pesquisar</h3><p>Encontrar negócio, verificar presença digital e guardar fontes públicas. Não assumir que não tem site.</p></article>
+          <article><span class="step-no">02</span><h3>Qualificar</h3><p>Confirmar público, serviço, contato e viabilidade da demonstração. Priorizar antes de produzir.</p></article>
+          <article><span class="step-no">03</span><h3>Definir direção</h3><p>Brief e duas propostas com hero e seção em desktop/mobile. Escolher antes do desenvolvimento completo.</p></article>
+          <article><span class="step-no">04</span><h3>Desenvolver</h3><p>Registrar DESIGN.md, executar a página e configurar corretamente o preview Vercel.</p></article>
+          <article><span class="step-no">05</span><h3>Auditar</h3><p>Conferir CTAs, mobile, teclado, conteúdo, build e evidências antes do contato.</p></article>
+          <article><span class="step-no">06</span><h3>Apresentar</h3><p>Mensagem curta e personalizada, link só depois de preparar a demo e acompanhamento sem insistência.</p></article>
+        </div>
+      </section>
+      <section class="section prompts-section" id="prompts" aria-labelledby="prompts-title">
+        <div class="section-heading"><div><p class="eyebrow">03 / ASSISTENTE DE PRODUÇÃO</p><h2 id="prompts-title">Prompts prontos para IA</h2><p class="muted">Escolha uma empresa para contextualizar os prompts; eles não inventam fatos ausentes.</p></div></div>
+        <div class="prompt-toolbar"><label for="prompt-lead">Empresa selecionada</label><select id="prompt-lead"><option value="">Sem empresa (modelo genérico)</option></select></div>
+        <div class="prompt-grid">
+          <article><p class="eyebrow">ETAPA A</p><h3>Pesquisa e brief</h3><p>Fontes, dados confirmados, público, oferta, critérios.</p><button class="button button-secondary" data-prompt="pesquisa" type="button">Copiar prompt</button></article>
+          <article><p class="eyebrow">ETAPA B</p><h3>Direção de arte</h3><p>Duas direções com composições distintas para selecionar.</p><button class="button button-secondary" data-prompt="direcao" type="button">Copiar prompt</button></article>
+          <article><p class="eyebrow">ETAPA C</p><h3>Execução completa</h3><p>Implementação, DESIGN.md, testes e publicação autorizada.</p><button class="button button-secondary" data-prompt="completo" type="button">Copiar prompt</button></article>
+          <article><p class="eyebrow">ETAPA D</p><h3>Auditoria final</h3><p>Rastreabilidade Rxx, screenshots e correções verificadas.</p><button class="button button-secondary" data-prompt="auditoria" type="button">Copiar prompt</button></article>
+        </div>
+      </section>
+      <footer class="footer">
+        <div><strong>Seus dados ficam com você.</strong><p>Backup JSON restaura todos os registros deste dispositivo. CSV serve para análise em planilhas.</p></div>
+        <div class="footer-actions"><button id="export-json" class="button button-secondary" type="button">Exportar JSON</button><button id="export-csv" class="button button-secondary" type="button">Exportar CSV</button><label class="button button-secondary file-action">Importar JSON<input id="import-json" type="file" accept="application/json,.json" hidden></label></div>
+      </footer>
+    </main>
+  </div>
+  <dialog id="lead-dialog" aria-labelledby="dialog-title"><form id="lead-form" novalidate>
+    <div class="dialog-top"><div><p class="eyebrow">FICHA DA OPORTUNIDADE</p><h2 id="dialog-title">Nova empresa</h2></div><button type="button" id="close-dialog" class="close" aria-label="Fechar formulário">×</button></div>
+    <div class="form-grid">
+      <label class="wide">Empresa *<input required name="name" maxlength="120" placeholder="Nome do negócio"></label>
+      <label>Segmento<input name="segment" maxlength="100" placeholder="Ex.: assistência técnica"></label>
+      <label>Cidade<input name="city" maxlength="100" placeholder="Ex.: Torres/RS"></label>
+      <label>Etapa comercial<select name="stage" id="form-stage"></select></label>
+      <label>Fase do projeto<select name="phase" id="form-phase"></select></label>
+      <label>Auditoria<select name="audit" id="form-audit"></select></label>
+      <label>Próxima ação (data)<input name="next_date" type="date"></label>
+      <label>Site oficial (se confirmado)<input name="website" type="url" placeholder="https://..."></label>
+      <label>Instagram<input name="instagram" type="url" placeholder="https://instagram.com/..."></label>
+      <label>URL da demonstração na Vercel<input name="vercel_url" type="url" placeholder="https://...vercel.app"></label>
+      <label>Repositório GitHub<input name="github_url" type="url" placeholder="https://github.com/..."></label>
+      <label>Contato comercial público<input name="public_contact" maxlength="150" placeholder="WhatsApp comercial ou outro canal"></label>
+      <label>Último contato<input name="last_contact" type="date"></label>
+      <label>Valor proposto (R$)<input name="proposed_value" type="number" min="0" step="0.01" inputmode="decimal"></label>
+      <label>Valor fechado (R$)<input name="closed_value" type="number" min="0" step="0.01" inputmode="decimal"></label>
+      <label class="wide">Próximo passo / observações sem dados sensíveis<textarea name="notes" rows="3" maxlength="4000" placeholder="Qual é a próxima ação? O que falta confirmar?"></textarea></label>
+    </div>
+    <p class="form-error" id="form-error" role="alert"></p>
+    <div class="dialog-actions"><button class="button button-plain" type="button" id="cancel-dialog">Cancelar</button><button class="button button-primary" type="submit">Salvar empresa</button></div>
+  </form></dialog>
+  <div id="notice" class="notice" role="status" aria-live="polite" hidden></div>
+</body>
+</html>
