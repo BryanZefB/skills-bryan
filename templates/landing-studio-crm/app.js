@@ -153,6 +153,7 @@ $('#lead-form').addEventListener('submit', event => {
 });
 $('#export-json').addEventListener('click', () => download(backup(leads), 'landing-studio-backup.json', 'application/json;charset=utf-8'));
 $('#export-csv').addEventListener('click', () => download(exportCsv(leads), 'landing-studio-oportunidades.csv', 'text/csv;charset=utf-8'));
+$('#import-trigger').addEventListener('click', () => $('#import-json').click());
 $('#import-json').addEventListener('change', async event => {
   const file = event.target.files?.[0];
   if (!file) return;
