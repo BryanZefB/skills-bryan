@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { STAGES, normalizeLead, summarize, filterLeads, backup, restore, safeUrl, exportCsv } from '../core.mjs';
+import { STAGES, WORKFLOW, workflowProgress, normalizeLead, summarize, filterLeads, backup, restore, safeUrl, exportCsv } from '../core.mjs';
 const make = data => normalizeLead({ id: 'a1', name: 'Exemplo', ...data });
 test('valida nome e normaliza fase inválida', () => {
   assert.throws(() => normalizeLead({ id:'x', name:' ' }), /nome/);
@@ -32,4 +32,24 @@ test('CSV neutraliza fórmula de planilha e preserva nome', () => {
   const csv = exportCsv([make({ name:'=IMPORTXML("a","b")' })]);
   assert.match(csv, /'=IMPORTXML/);
   assert.match(csv, /"name";"segment"/);
+});
+
+test('workflow por cliente preserva checklists e carrega backups antigos', () => {
+  const old = { version:1, leads:[{id:'legado', name:'Cliente anterior'}] };
+  const [migrated] = restore(JSON.stringify(old));
+  assert.equal(workflowProgress(migrated).finished, 0);
+  assert.equal(workflowProgress(migrated).next.id, 'pesquisa');
+  const lead = make({workflow:{ pesquisa:true, brief:true, hack:true }});
+  assert.equal(workflowProgress(lead).finished, 2);
+  assert.equal(workflowProgress(lead).next.id, 'direcao');
+  assert.equal(Object.keys(lead.workflow).length, WORKFLOW.length);
+  assert.equal(lead.workflow.hack, undefined);
+  const [reloaded] = restore(backup([lead]));
+  assert.equal(workflowProgress(reloaded).finished, 2);
+});
+test('fonte, data de verificação e próxima ação são normalizadas', () => {
+  const lead = make({source:'javascript:alert(1)', verified_on:'2026-10-14', next_action:'Enviar proposta'});
+  assert.equal(lead.source, '');
+  assert.equal(lead.verified_on, '2026-10-14');
+  assert.equal(lead.next_action, 'Enviar proposta');
 });

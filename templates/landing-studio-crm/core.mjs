@@ -10,6 +10,19 @@ export const STAGES = [
   { id: 'fechado', label: 'Fechado' },
   { id: 'perdido', label: 'Perdido' }
 ];
+export const WORKFLOW = [
+  { id:'pesquisa', label:'Pesquisar e verificar', desc:'Encontre fontes oficiais, confira se já existe site e reúna dados públicos.', prompt:'pesquisa' },
+  { id:'brief', label:'Definir o briefing', desc:'Registre público, serviços reais, CTA, assets e critérios de aceite.', prompt:'brief' },
+  { id:'direcao', label:'Escolher a direção de arte', desc:'Compare duas composições reais em desktop e mobile antes de construir tudo.', prompt:'direcao' },
+  { id:'desenvolvimento', label:'Desenvolver a landing page', desc:'Crie DESIGN.md, implemente conteúdo confirmado e jornada de conversão.', prompt:'completo' },
+  { id:'auditoria', label:'Auditar e corrigir', desc:'Teste no navegador, confira todos os CTAs e registre evidências em AUDIT.md.', prompt:'auditoria' },
+  { id:'publicacao', label:'Publicar uma prévia Vercel', desc:'Após autorização, faça deploy, confira o link e identifique a demo como não oficial.', prompt:'publicacao' },
+  { id:'contato', label:'Apresentar e acompanhar', desc:'Envie uma mensagem personalizada; registre resposta, próxima ação e negociação.', prompt:'abordagem' }
+];
+export function workflowProgress(lead) {
+  const finished = WORKFLOW.filter(step => lead.workflow?.[step.id]).length;
+  return { finished, total: WORKFLOW.length, next: WORKFLOW.find(step => !lead.workflow?.[step.id]) ?? null };
+}
 export const PHASES = ['Não iniciado', 'Pesquisa', 'Direção', 'Implementação', 'Auditoria', 'Publicado'];
 export const AUDITS = ['Não iniciada', 'Parcial', 'Aprovada'];
 const text = (value, length = 500) => String(value ?? '').trim().slice(0, length);
@@ -48,6 +61,10 @@ export function normalizeLead(raw, createId = () => '') {
     last_contact: date(raw.last_contact),
     next_date: date(raw.next_date),
     notes: text(raw.notes, 4000),
+    next_action: text(raw.next_action, 240),
+    source: safeUrl(raw.source),
+    verified_on: date(raw.verified_on),
+    workflow: Object.fromEntries(WORKFLOW.map(step => [step.id, raw.workflow?.[step.id] === true])),
     created_at: text(raw.created_at, 35) || new Date().toISOString(),
     updated_at: new Date().toISOString()
   };
@@ -86,6 +103,6 @@ const csvCell = value => {
   return '"' + s.replaceAll('"','""') + '"';
 };
 export function exportCsv(leads) {
-  const fields = ['name','segment','city','stage','phase','audit','website','instagram','public_contact','vercel_url','github_url','proposed_value','closed_value','last_contact','next_date','notes'];
+  const fields = ['name','segment','city','stage','phase','audit','website','instagram','source','verified_on','public_contact','vercel_url','github_url','proposed_value','closed_value','last_contact','next_date','next_action','notes'];
   return '\uFEFF' + [fields.map(csvCell).join(';'), ...leads.map(l => fields.map(f => csvCell(l[f])).join(';'))].join('\r\n');
 }
