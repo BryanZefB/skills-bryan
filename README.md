@@ -73,3 +73,10 @@ python scripts/validate.py
 ```
 
 Os comandos completos de lint e testes estão no [guia de manutenção](CONTRIBUTING.md).
+
+## Operação de landing pages e prospecção
+
+- [Estúdio de landing pages: playbook e auditoria](docs/landing-page-playbook.md)
+- [Prospecção comercial: funil, rotina e métricas](docs/prospeccao-landing-pages.md)
+- [Prompt mestre e modelos de BRIEF, DESIGN, AUDIT e LESSONS](templates/landing-pages/PROMPT-MESTRE.md)
+- [Starter de CRM de oportunidades](templates/landing-studio-crm/README.md) — dados somente no navegador; não use o GitHub como base privada de leads.
