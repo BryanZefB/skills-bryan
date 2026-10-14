@@ -20,6 +20,7 @@ try {
   await page.goto('http://127.0.0.1:4173/',{waitUntil:'domcontentloaded'});
   await page.locator('#add-lead').waitFor();
   const dashboardA11y = await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa','wcag22aa']).analyze();
+  if (dashboardA11y.violations.length) console.error('AXE-DASHBOARD',JSON.stringify(dashboardA11y.violations.map(v=>({id:v.id,impact:v.impact,nodes:v.nodes.map(n=>({target:n.target,summary:n.failureSummary}))})),null,2));
   assert.deepEqual(dashboardA11y.violations.filter(x=>['critical','serious'].includes(x.impact)).map(x=>x.id),[],'Acessibilidade automatizada do dashboard');
   await page.locator('#add-lead').click();
   await page.locator('[name=name]').fill('Empresa Teste');
