@@ -10,7 +10,9 @@ Protótipo funcional independente para controle pessoal de prospecção e demos 
 - Registrar data de contato, próximo passo, propostas e valor efetivamente fechado.
 - Ver quantidade de oportunidades, demos para contato, respostas e valor fechado.
 - Exportar JSON para backup, restaurar JSON **substituindo** dados locais após confirmação, exportar CSV com proteção básica contra fórmulas.
-- Copiar quatro prompts contextualizados por empresa: pesquisa, direção, implementação e auditoria.
+- Abrir um **roteiro de 7 etapas por empresa** com checklist persistente: pesquisa, briefing, direção, desenvolvimento, auditoria, publicação, contato.
+- Copiar prompts contextualizados pela empresa em cada etapa e modelos de abordagem/acompanhamento.
+- Guardar fonte pesquisada, data da verificação e próxima ação (texto + data).
 - UI adaptada para celular; não depende de bibliotecas JavaScript nem de infraestrutura externa (fontes opcionais vêm do Google Fonts).
 
 **Importante:** os registros persistem em `localStorage` **somente neste navegador/origem**. Limpar dados do navegador, usar modo anônimo, trocar o domínio ou dispositivo pode levar à perda de registros. Baixe backups JSON regularmente. Contatos e valores comerciais reais não devem ser versionados no GitHub, especialmente quando o repo é público.
@@ -52,3 +54,17 @@ Como o CRM é privado mas **não possui autenticação**, hospedar o frontend n�
 5. Testes E2E reais (Playwright), auditoria de acessibilidade e validação de deploy/backup em navegador físico e emulado.
 
 **Fonte da operação:** [docs/prospeccao-landing-pages.md](../../docs/prospeccao-landing-pages.md). **Qualidade das demos:** [docs/landing-page-playbook.md](../../docs/landing-page-playbook.md). **Prompt mestre:** [templates/landing-pages/PROMPT-MESTRE.md](../landing-pages/PROMPT-MESTRE.md).
+
+## Usar no dia a dia — exemplo
+
+1. Clique em **Nova empresa** e cadastre nome, segmento e cidade. Preencha URL da fonte pública e data de verificação; anote o próximo passo.
+2. Na linha da empresa, clique em **Roteiro**. Siga o passo 1, copie o prompt de pesquisa e passe ao seu agente de IA com acesso à web. Confira os resultados e as fontes antes de marcar a etapa.
+3. Abra o passo 2 e produza o `BRIEF.md` com dados confirmados. Marque apenas depois de finalizar e revisar.
+4. Passe à direção de arte com duas propostas de hero, depois desenvolva e audite. A auditoria precisa registrar testes reais; o checklist não substitui o relatório.
+5. Após autorização para publicar a demonstração, configure a Vercel, confira CTA/URL e guarde o link no cadastro. Marque a etapa como concluída.
+6. Copie a mensagem comercial; personalize, escolha o canal e envie **manualmente**, se apropriado. Atualize a etapa comercial e agende o retorno com a próxima ação.
+7. Mantenha backup JSON (não coloque os arquivos exportados no GitHub público). A importação substitui os registros locais.
+
+### Verificação automatizada de navegador
+
+O workflow `.github/workflows/validate-landing-studio.yml` executa testes de lógica e um smoke test Chromium usando Playwright: cadastro, checklist, clipboard, filtro, backup e capturas nas larguras 320/375/414/768/1024/1440. O teste roda no GitHub Actions; capturas ficam no artefato de CI por prazo limitado. Resultados de CI não certificam acessibilidade/estética e não substituem revisão humana.

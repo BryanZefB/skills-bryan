@@ -23,5 +23,31 @@ jobs:
         run: |
           node --check templates/landing-studio-crm/app.js
           node --check templates/landing-studio-crm/core.mjs
+          node --check templates/landing-studio-crm/test/browser.test.mjs
       - name: Domain regression tests
         run: node --test templates/landing-studio-crm/test/core.test.mjs
+  browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install Playwright
+        working-directory: templates/landing-studio-crm
+        run: |
+          npm install --no-save --no-package-lock playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Smoke test in Chromium
+        run: |
+          python3 -m http.server 4173 --directory templates/landing-studio-crm >/tmp/studio-server.log 2>&1 &
+          node templates/landing-studio-crm/test/browser.test.mjs
+      - name: Screenshots from browser test
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: landing-studio-browser-evidence
+          path: templates/landing-studio-crm/test/evidence/
+          if-no-files-found: ignore
+          retention-days: 7
