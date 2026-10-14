@@ -66,6 +66,9 @@
           <article><p class="eyebrow">ETAPA B</p><h3>Direção de arte</h3><p>Duas direções com composições distintas para selecionar.</p><button class="button button-secondary" data-prompt="direcao" type="button">Copiar prompt</button></article>
           <article><p class="eyebrow">ETAPA C</p><h3>Execução completa</h3><p>Implementação, DESIGN.md, testes e publicação autorizada.</p><button class="button button-secondary" data-prompt="completo" type="button">Copiar prompt</button></article>
           <article><p class="eyebrow">ETAPA D</p><h3>Auditoria final</h3><p>Rastreabilidade Rxx, screenshots e correções verificadas.</p><button class="button button-secondary" data-prompt="auditoria" type="button">Copiar prompt</button></article>
+          <article><p class="eyebrow">ETAPA E</p><h3>Publicar prévia</h3><p>Configurar Vercel e conferir a URL publicada, sem fazer deploy não autorizado.</p><button class="button button-secondary" data-prompt="publicacao" type="button">Copiar prompt</button></article>
+          <article><p class="eyebrow">ETAPA F</p><h3>Mensagem comercial</h3><p>Abordagem curta, personalizada e sem promessa inventada.</p><button class="button button-secondary" data-prompt="abordagem" type="button">Copiar mensagem</button></article>
+          <article><p class="eyebrow">ETAPA G</p><h3>Acompanhamento</h3><p>Mensagem educada para um retorno sem insistência.</p><button class="button button-secondary" data-prompt="acompanhamento" type="button">Copiar mensagem</button></article>
         </div>
       </section>
       <footer class="footer">
@@ -84,6 +87,9 @@
       <label>Fase do projeto<select name="phase" id="form-phase"></select></label>
       <label>Auditoria<select name="audit" id="form-audit"></select></label>
       <label>Próxima ação (data)<input name="next_date" type="date"></label>
+      <label class="wide">O que preciso fazer depois?<input name="next_action" maxlength="240" placeholder="Ex.: solicitar logo e fotos, preparar hero ou enviar prévia"></label>
+      <label>Fonte principal verificada<input name="source" type="url" placeholder="https://..."></label>
+      <label>Data da verificação<input name="verified_on" type="date"></label>
       <label>Site oficial (se confirmado)<input name="website" type="url" placeholder="https://..."></label>
       <label>Instagram<input name="instagram" type="url" placeholder="https://instagram.com/..."></label>
       <label>URL da demonstração na Vercel<input name="vercel_url" type="url" placeholder="https://...vercel.app"></label>
@@ -97,6 +103,16 @@
     <p class="form-error" id="form-error" role="alert"></p>
     <div class="dialog-actions"><button class="button button-plain" type="button" id="cancel-dialog">Cancelar</button><button class="button button-primary" type="submit">Salvar empresa</button></div>
   </form></dialog>
+  <dialog id="workflow-dialog" aria-labelledby="workflow-title">
+    <div class="workflow-panel">
+      <div class="dialog-top"><div><p class="eyebrow">ROTEIRO DE PRODUÇÃO</p><h2 id="workflow-title">Etapas da empresa</h2><p id="workflow-company" class="muted"></p></div><button type="button" id="close-workflow" class="close" aria-label="Fechar roteiro">×</button></div>
+      <p class="workflow-intro">Marque cada etapa somente depois de concluí-la. Os prompts copiam as informações já cadastradas; confira os fatos antes de usar.</p>
+      <div class="workflow-progress"><span id="workflow-count"></span><div class="progress-track" aria-hidden="true"><div class="progress-fill" id="workflow-progress-fill"></div></div></div>
+      <p id="workflow-warning" class="workflow-warning" hidden></p>
+      <div id="workflow-steps" class="workflow-steps"></div>
+      <div class="workflow-bottom"><button class="button button-secondary" id="workflow-edit" type="button">Editar informações</button><button class="button button-primary" id="workflow-done" type="button">Concluir por agora</button></div>
+    </div>
+  </dialog>
   <div id="notice" class="notice" role="status" aria-live="polite" hidden></div>
 </body>
 </html>

@@ -1,4 +1,4 @@
-import { STAGES, PHASES, AUDITS, normalizeLead, summarize, filterLeads, backup, restore, exportCsv, safeUrl } from './core.mjs';
+import { STAGES, PHASES, AUDITS, WORKFLOW, workflowProgress, normalizeLead, summarize, filterLeads, backup, restore, exportCsv, safeUrl } from './core.mjs';
 
 const STORAGE_KEY = 'landing-studio-crm-v1';
 const $ = selector => document.querySelector(selector);
@@ -8,6 +8,7 @@ const stageName = id => STAGES.find(s => s.id === id)?.label || 'Pesquisar';
 const idFactory = () => crypto.randomUUID();
 let leads = [];
 let editingId = null;
+let workflowId = null;
 let warning = '';
 
 function notify(message) {
@@ -56,10 +57,10 @@ function render() {
   $('#lead-rows').innerHTML = result.map(l => '<tr>' +
     '<td><strong class="company">' + esc(l.name) + '</strong><small>' + esc([l.segment, l.city].filter(Boolean).join(' · ') || 'Sem segmento/cidade') + '</small></td>' +
     '<td><select class="stage-select" aria-label="Etapa de ' + esc(l.name) + '" data-stage-id="' + esc(l.id) + '">' + options(STAGES,l.stage) + '</select></td>' +
-    '<td><span class="phase">' + esc(l.phase) + '</span><small>Auditoria: ' + esc(l.audit) + '</small></td>' +
-    '<td><span>' + esc(l.next_date ? l.next_date.split('-').reverse().join('/') : 'Não agendada') + '</span><small>' + esc(l.notes.slice(0,80) || 'Sem próxima ação descrita') + '</small></td>' +
+    '<td><span class="phase">' + esc(l.phase) + '</span><small>Auditoria: ' + esc(l.audit) + ' · ' + workflowProgress(l).finished + '/' + WORKFLOW.length + ' etapas</small></td>' +
+    '<td><span>' + esc(l.next_date ? l.next_date.split('-').reverse().join('/') : 'Não agendada') + '</span><small>' + esc((l.next_action || l.notes).slice(0,80) || 'Sem próxima ação descrita') + '</small></td>' +
     '<td><div class="links">' + (link(l.vercel_url,'Prévia') + link(l.github_url,'GitHub') + link(l.website,'Site') || '<span class="muted">—</span>') + '</div></td>' +
-    '<td><div class="actions"><button type="button" class="text-button" data-edit="' + esc(l.id) + '">Editar</button><button type="button" class="text-button delete" data-delete="' + esc(l.id) + '">Excluir</button></div></td>' +
+    '<td><div class="actions"><button type="button" class="text-button workflow-button" data-workflow="' + esc(l.id) + '">Roteiro</button><button type="button" class="text-button" data-edit="' + esc(l.id) + '">Editar</button><button type="button" class="text-button delete" data-delete="' + esc(l.id) + '">Excluir</button></div></td>' +
     '</tr>').join('');
   $('#empty').hidden = result.length > 0;
   const prompt = $('#prompt-lead');
@@ -87,23 +88,84 @@ function download(content, filename, type) {
   a.href = url; a.download = filename; a.click();
   setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
-function promptText(mode) {
-  const lead = leads.find(l => l.id === $('#prompt-lead').value);
+function promptText(mode, selectedLead = null) {
+  const lead = selectedLead || leads.find(l => l.id === $('#prompt-lead').value);
   const detail = lead
     ? 'Empresa: ' + lead.name + '\nSegmento: ' + (lead.segment || 'a pesquisar') +
       '\nCidade: ' + (lead.city || 'a pesquisar') + '\nSite confirmado: ' + (lead.website || 'não confirmado') +
       '\nInstagram: ' + (lead.instagram || 'não confirmado') + '\nRepositório: ' + (lead.github_url || 'a definir') +
-      '\nPreview Vercel: ' + (lead.vercel_url || 'a definir') + '\nObservações/pendências: ' + (lead.notes || 'a investigar')
+      '\nPreview Vercel: ' + (lead.vercel_url || 'a definir') + '\nFonte da pesquisa: ' + (lead.source || 'não informada') + '\nVerificado em: ' + (lead.verified_on || 'data não informada') + '\nPróxima ação: ' + (lead.next_action || 'não definida') + '\nObservações/pendências: ' + (lead.notes || 'a investigar')
     : 'Empresa, segmento, cidade, serviços, contatos, fontes e repositório: preencher com informações verificadas.';
   const intro = 'Siga o processo de docs/landing-page-playbook.md do repositório BryanZefB/skills-bryan. Leia as instruções do projeto, BRIEF.md e DESIGN.md existentes. Não invente fatos, não alegue testes não executados.\n\n' + detail + '\n\n';
   const directions = {
-    pesquisa: 'MODO DIREÇÃO, fase de pesquisa: verifique as informações públicas e suas fontes. Produza BRIEF.md com fatos/hypóteses/lacunas, público, oferta, objeções, CTA e requisitos Rxx testáveis. Não inicie a implementação. Identifique direitos de uso dos assets.',
+    pesquisa: 'FASE PESQUISA: pesquise nome, serviços, cidade, Google Maps, Instagram e presença digital. Verifique se existe site próprio (ausência em busca não é confirmação). Liste fontes, datas e informações confirmadas, o que falta e oportunidades reais. Não invente dados nem faça contato.',
+    brief: 'FASE BRIEF: use fontes verificadas para produzir BRIEF.md com fatos/histórico/fonte, público, oferta, objeções, objetivo do site, CTA com destino confirmado, assets autorizados e requisitos R01...Rn com como testar. Mostre lacunas; não implemente o site ainda.',
     direcao: 'MODO DIREÇÃO: com base no BRIEF.md, crie duas direções visuais realmente distintas para hero e uma seção, desktop e mobile, com hierarquia, imagens, composição e tipografia. Explique adequação, riscos e recomende uma escolha. Não crie a página completa antes da avaliação.',
     completo: 'MODO COMPLETO: leia BRIEF.md; apresente duas direções, escolha justificadamente se autorizado e registre em DESIGN.md; implemente a landing page mobile-first, CTA real, estados acessíveis e metadados. Execute testes reais e preencha AUDIT.md. Corrija falhas relevantes. Publique na Vercel apenas com autorização específica. Registre LESSONS.md e links.',
-    auditoria: 'MODO AUDITORIA: compare pedido, BRIEF.md, DESIGN.md e página renderizada. Teste 320/375/414/768/1024/1440 px, links, CTA, foco, contraste, reduced-motion, build e console; faça screenshots reais, corrija falhas autorizadas, reteste e preencha Rxx → implementação → teste → evidência → status. Reporte PARCIAL/BLOQUEADO quando necessário.'
+    auditoria: 'MODO AUDITORIA: compare pedido, BRIEF.md, DESIGN.md e página renderizada. Teste 320/375/414/768/1024/1440 px, links, CTA, foco, contraste, reduced-motion, build e console; faça screenshots reais, corrija falhas autorizadas, reteste e preencha Rxx → implementação → teste → evidência → status. Reporte PARCIAL/BLOQUEADO quando necessário.',
+    publicacao: 'FASE PUBLICAÇÃO: revise o escopo e obtenha autorização específica antes do deploy. Configure preview na Vercel com Root Directory correto, garanta que os dados comerciais e segredos não sejam incluídos, publique na branch adequada e confirme o carregamento/CTA na URL real. Não anuncie deploy como feito sem evidência. Marque a demo como proposta independente, não site oficial.',
+    abordagem: 'Mensagem pronta para adaptar (NÃO enviar automaticamente): Olá! Conheci o trabalho da ' + (lead?.name || '[empresa]') + ' e tive uma ideia de como apresentar os serviços de forma mais clara na internet. Preparei uma demonstração de página e queria saber se posso enviar a prévia, sem compromisso. Caso não seja prioridade, tudo bem!',
+    acompanhamento: 'Mensagem pronta para adaptar (NÃO enviar automaticamente): Olá, pessoal da ' + (lead?.name || '[empresa]') + '! Passando apenas para saber se faz sentido conversar sobre a ideia de página que compartilhei. Se não for prioridade agora, sem problema. Obrigado!' 
   };
   return intro + directions[mode];
 }
+
+
+function showWorkflow() {
+  const lead = leads.find(l => l.id === workflowId);
+  if (!lead) return;
+  const progress = workflowProgress(lead);
+  $('#workflow-title').textContent = lead.name;
+  $('#workflow-company').textContent = [lead.segment, lead.city].filter(Boolean).join(' · ') || 'Dados comerciais ainda incompletos';
+  $('#workflow-count').textContent = progress.finished + ' de ' + progress.total + ' etapas concluídas';
+  $('#workflow-progress-fill').style.width = (100 * progress.finished / progress.total) + '%';
+  const warning = $('#workflow-warning');
+  warning.hidden = lead.audit === 'Aprovada';
+  warning.textContent = 'Auditoria ainda não aprovada no cadastro. Não trate a demonstração como validada nem envie como entrega final.';
+  $('#workflow-steps').innerHTML = WORKFLOW.map((step, i) =>
+    '<div class="workflow-step' + (lead.workflow?.[step.id] ? ' is-complete' : '') + '">' +
+    '<div class="workflow-number">' + String(i+1).padStart(2,'0') + '</div>' +
+    '<div><label><input type="checkbox" data-workflow-check="' + esc(step.id) + '"' + (lead.workflow?.[step.id] ? ' checked' : '') + '> <strong>' + esc(step.label) + '</strong></label>' +
+    '<p>' + esc(step.desc) + '</p>' +
+    (step.id === 'publicacao' ? '<small>Prévia: ' + (link(lead.vercel_url,'Abrir Vercel') || 'URL ainda não cadastrada') + '</small>' : '') +
+    '</div><button class="button button-secondary step-copy" type="button" data-workflow-copy="' + esc(step.prompt) + '">Copiar</button></div>'
+  ).join('');
+}
+function openWorkflow(id) {
+  workflowId = id;
+  if (!leads.some(l => l.id === id)) return;
+  showWorkflow();
+  $('#workflow-dialog').showModal();
+}
+async function copyPrompt(mode, lead = null) {
+  try {
+    await navigator.clipboard.writeText(promptText(mode, lead));
+    notify(mode === 'abordagem' || mode === 'acompanhamento' ? 'Mensagem copiada; personalize antes de enviar.' : 'Prompt copiado. Confira o brief e as fontes.');
+  } catch { notify('Falha ao copiar. Use HTTPS ou localhost e libere o acesso à área de transferência.'); }
+}
+$('#close-workflow').addEventListener('click', () => $('#workflow-dialog').close());
+$('#workflow-done').addEventListener('click', () => $('#workflow-dialog').close());
+$('#workflow-edit').addEventListener('click', () => {
+  const lead = leads.find(l => l.id === workflowId);
+  $('#workflow-dialog').close();
+  if (lead) openDialog(lead);
+});
+$('#workflow-steps').addEventListener('change', event => {
+  const control = event.target.closest('[data-workflow-check]');
+  if (!control || !WORKFLOW.some(step => step.id === control.dataset.workflowCheck)) return;
+  const previous = leads;
+  leads = leads.map(l => l.id === workflowId ? {
+    ...l, workflow: { ...l.workflow, [control.dataset.workflowCheck]: control.checked },
+    updated_at: new Date().toISOString()
+  } : l);
+  if (!persist()) leads = previous;
+  render();
+  showWorkflow();
+});
+$('#workflow-steps').addEventListener('click', event => {
+  const button = event.target.closest('[data-workflow-copy]');
+  if (button) copyPrompt(button.dataset.workflowCopy, leads.find(l => l.id === workflowId));
+});
 
 $('#today').textContent = new Intl.DateTimeFormat('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' }).format(new Date());
 $('#stage-filter').insertAdjacentHTML('beforeend', options(STAGES,''));
@@ -118,6 +180,8 @@ $('#stage-filter').addEventListener('change', render);
 $('#lead-rows').addEventListener('click', event => {
   const edit = event.target.closest('[data-edit]');
   const del = event.target.closest('[data-delete]');
+  const guide = event.target.closest('[data-workflow]');
+  if (guide) openWorkflow(guide.dataset.workflow);
   if (edit) openDialog(leads.find(l => l.id === edit.dataset.edit));
   if (del && confirm('Excluir esta oportunidade deste navegador? Faça um backup se quiser preservá-la.')) {
     const updated = leads.filter(l => l.id !== del.dataset.delete);
@@ -169,12 +233,7 @@ $('#import-json').addEventListener('change', async event => {
   } catch (error) { notify('Erro na importação: ' + error.message); }
   finally { event.target.value = ''; }
 });
-document.querySelectorAll('[data-prompt]').forEach(button => button.addEventListener('click', async () => {
-  try {
-    await navigator.clipboard.writeText(promptText(button.dataset.prompt));
-    notify('Prompt copiado. Use com o playbook e os arquivos do projeto.');
-  } catch { notify('Não foi possível copiar. Use HTTPS ou localhost e permita a área de transferência.'); }
-}));
+document.querySelectorAll('[data-prompt]').forEach(button => button.addEventListener('click', () => copyPrompt(button.dataset.prompt)));
 try { leads = read(); } catch { warning = 'Armazenamento local indisponível; verifique permissões ou use outro navegador.'; }
 render();
 if (warning) notify(warning);
