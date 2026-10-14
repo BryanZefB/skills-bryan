@@ -1,0 +1,27 @@
+name: Landing Studio CRM tests
+on:
+  pull_request:
+    paths:
+      - "templates/landing-studio-crm/**"
+      - ".github/workflows/validate-landing-studio.yml"
+  push:
+    branches: [main]
+    paths:
+      - "templates/landing-studio-crm/**"
+      - ".github/workflows/validate-landing-studio.yml"
+permissions:
+  contents: read
+jobs:
+  unit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Syntax-check JavaScript
+        run: |
+          node --check templates/landing-studio-crm/app.js
+          node --check templates/landing-studio-crm/core.mjs
+      - name: Domain regression tests
+        run: node --test templates/landing-studio-crm/test/core.test.mjs
