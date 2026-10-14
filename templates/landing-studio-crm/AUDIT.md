@@ -1,25 +1,37 @@
-# Verificação inicial do starter CRM
+# Auditoria do Landing Studio CRM
 
-**Estado atual:** PARCIAL — testes de lógica e validações de integridade passaram no GitHub Actions, mas inspeção visual e testes E2E em navegador **não foram executados nesta entrega**. Não tratar como certificado de qualidade/segurança.
+**Status geral: PARCIAL (CI automatizado aprovado; revisão humana visual e preview Vercel pendentes).**
 
-## Evidências de CI (14/10/2026)
+## Evidências da branch `feat/landing-studio-guided-workflow`
 
-- [Landing Studio CRM tests — sucesso](https://github.com/BryanZefB/skills-bryan/actions/runs/38626434226): Node 22, `node --check` de app.js/core.mjs e `node --test` do domínio.
-- [Validar acervo — sucesso](https://github.com/BryanZefB/skills-bryan/actions/runs/38626434054): integridade/documentação, lint dos scripts próprios e testes dos scripts, em Ubuntu e Windows.
-- Commit do código testado: `daaac54e68be75e574ff6460a6ab3f3303270c5a`.
+- Commit implementado e testado: `43cb2713a27a9ca20d204b72f669a0a24e2b3944`.
+- [Landing Studio CRM tests](https://github.com/BryanZefB/skills-bryan/actions/runs/38632232393) — **SUCCESS**: lint sintático (Node), regressões de domínio, execução Chromium Playwright.
+- [Validar acervo](https://github.com/BryanZefB/skills-bryan/actions/runs/38632232263) — **SUCCESS**: integridade das skills e scripts próprios em CI.
+- [Artefato de screenshots: 6 larguras, dashboard e roteiro](https://github.com/BryanZefB/skills-bryan/actions/runs/38632232393) — artefato `landing-studio-browser-evidence` disponível temporariamente no run (capturado, **não inspecionado visualmente por pessoa nesta execução**).
 
-## Checklist
-| Requisito | Método | Resultado |
+## Matriz
+| Exigência | Teste executado | Resultado |
 | --- | --- | --- |
-| Dados somente locais, sem backend | Revisão da arquitetura | Implementado; persistência real não testada em browser |
-| CRUD, filtros e etapas comerciais | Playwright E2E: criar/editar/excluir/alterar etapa | Não verificado |
-| Backup JSON/importação/CSV | Node unit tests + teste de download/import no browser | Unit tests: passou; browser: não verificado |
-| Tratamento de URL e CSV | Node unit tests | Passou |
-| Sintaxe JavaScript | `node --check` no GitHub Actions | Passou |
-| Integridade do acervo de skills | GitHub Actions Ubuntu/Windows | Passou |
-| Responsividade 320/375/414/768/1024/1440 | Screenshots Playwright e inspeção | Não verificado |
-| Acessibilidade (teclado, foco, diálogo, contraste) | Browser, axe e avaliação manual | Não verificado |
-| Offline e cache local | Navegador sem rede | Não verificado |
-| Deploy Vercel | Smoke test URL publicada | Não publicado |
+| Cadastrar e encontrar empresa | Playwright: form, salvar, buscar por cidade/nome | Passou |
+| Persistência por navegador | Playwright: checklist e reload | Passou |
+| Checklist individual de 7 etapas | Playwright: marcar, reabrir e conferir 1/7 | Passou |
+| Prompt contextualizado | Playwright: clipboard de `brief` | Passou |
+| Funil comercial | Playwright: mudar etapa e conferir | Passou |
+| Backup JSON | Playwright: baixar arquivo; unit tests: exportar/restaurar | Passou no escopo indicado |
+| Compatibilidade com backups anteriores | Unit test normalizando registro antigo | Passou |
+| Filtrar e evitar fórmulas em CSV | Unit tests | Passou no escopo testado |
+| Viewports mobile e desktop | Playwright: 320, 375, 414, 768, 1024, 1440, sem overflow de documento/diálogo | Passou no escopo automatizado |
+| Screenshots avaliadas visualmente por designer | Inspeção humana de tipografia, espaçamento, layout | Não verificado |
+| Acessibilidade completa e teclado | axe e revisão manual WCAG 2.2 AA | Não verificado |
+| Importação JSON pelo seletor de arquivo | E2E de importação e confirmação do usuário | Não verificado |
+| Infraestrutura e autenticação compartilhada | App permanece em localStorage sem conta | Não implementado nesta versão |
+| Publicação na Vercel | Preview/site publicado e smoke test | Não realizado |
 
-Quando um navegador/ambiente de publicação estiver disponível, atualizar com data, testes, prints e veredito conforme escopo.
+## Observações importantes
+- O CRM é local-first: dados persistem por **origem e navegador**, não por conta ou dispositivo. Há exportação de backup; não subir exportações com dados comerciais ao GitHub público.
+- Um checklist marcado não constitui comprovação de auditoria ou autorização para deploy. O relatório `AUDIT.md` de cada landing page deve conter evidências.
+- Os testes no Chromium confirmam fluxos fundamentais, mas não garantem usabilidade, acessibilidade total, segurança ou qualidade estética.
+- Nenhum lead de empresa real foi inserido ou publicado nesta entrega. Nenhum contrato, mensagem externa ou deploy de produção foi executado.
+
+## Próximo gate
+Revisar screenshots, rodar axe/navegação por teclado e a importação JSON em navegador. Após autorização e conexão de Vercel com permissão apropriada, criar um preview protegido para validação em dispositivo real.
