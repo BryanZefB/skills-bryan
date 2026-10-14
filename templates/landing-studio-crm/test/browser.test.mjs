@@ -1,4 +1,5 @@
 import { chromium } from 'playwright';
+import AxeBuilder from '@axe-core/playwright';
 import { mkdir } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import assert from 'node:assert/strict';
@@ -18,6 +19,8 @@ try {
   page.on('pageerror', error => errors.push(String(error)));
   await page.goto('http://127.0.0.1:4173/',{waitUntil:'domcontentloaded'});
   await page.locator('#add-lead').waitFor();
+  const dashboardA11y = await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa','wcag22aa']).analyze();
+  assert.deepEqual(dashboardA11y.violations.filter(x=>['critical','serious'].includes(x.impact)).map(x=>x.id),[],'Acessibilidade automatizada do dashboard');
   await page.locator('#add-lead').click();
   await page.locator('[name=name]').fill('Empresa Teste');
   await page.locator('[name=segment]').fill('Assistência técnica');
@@ -31,6 +34,8 @@ try {
   await page.locator('[data-workflow]').click();
   assert.equal(await page.locator('#workflow-dialog').getAttribute('open'),'','Dialog deve abrir');
   assert.match(await page.locator('#workflow-count').innerText(),/0 de 7/);
+  const checklistA11y = await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa','wcag22aa']).analyze();
+  assert.deepEqual(checklistA11y.violations.filter(x=>['critical','serious'].includes(x.impact)).map(x=>x.id),[],'Acessibilidade automatizada do roteiro');
   await page.locator('[data-workflow-check="pesquisa"]').check();
   assert.match(await page.locator('#workflow-count').innerText(),/1 de 7/);
   await page.locator('[data-workflow-copy="brief"]').click();
@@ -56,6 +61,11 @@ try {
   await page.locator('#export-json').click();
   const d = await dl;
   assert.match(d.suggestedFilename(),/\.json$/);
+  const backupPath=resolve(shots,'teste-backup.json');
+  await d.saveAs(backupPath);
+  page.once('dialog',dialog=>dialog.accept());
+  await page.locator('#import-json').setInputFiles(backupPath);
+  assert.equal(await page.locator('#lead-rows tr').count(),1,'Importação JSON deve manter registro válido');
 
   for(const width of [320,375,414,768,1024,1440]){
     await page.setViewportSize({width,height:900});
@@ -71,6 +81,11 @@ try {
     assert.equal(dialogOverflow,false,`Roteiro com overflow em ${width}px`);
     await page.locator('#workflow-done').click();
   }
+  await page.locator('#add-lead').focus();
+  await page.keyboard.press('Enter');
+  assert.equal(await page.locator('#lead-dialog').getAttribute('open'),'','O formulário abre com teclado');
+  await page.keyboard.press('Escape');
+  assert.equal(await page.locator('#lead-dialog').getAttribute('open'),null,'O formulário fecha com Escape');
   assert.deepEqual(errors,[],'Não deve haver erros JS no navegador');
-  console.log('Browser smoke tests passed: CRUD, workflow, clipboard, persistence, search, JSON download and 6 viewports.');
+  console.log('Browser smoke tests passed: CRUD, workflow, clipboard, persistence, search, import/export JSON, keyboard, axe and 6 viewports.');
 } finally { await browser.close(); }
